@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqut.beautiful.dao.TechnicianDao">
+
+    <resultMap type="com.cqut.beautiful.entity.Technician" id="TechnicianMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="techexplain" column="techexplain" jdbcType="VARCHAR"/>
+        <result property="techname" column="techname" jdbcType="VARCHAR"/>
+        <result property="busid" column="busid" jdbcType="INTEGER"/>
+        <result property="imageurl" column="imageurl" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询所有-->
+    <select id="queryAll" resultType="com.cqut.beautiful.entity.Technician">
+        select
+          id, techexplain, techname, busid, imageurl
+        from technician
+    </select>
+
+    <!--根据名字查询-->
+    <select id="queryByName" resultMap="TechnicianMap">
+        select
+          id, techexplain, techname, busid, imageurl
+        from technician
+        where techname = #{name} and image.id = technician.imageid
+    </select>
+
+</mapper>
+
