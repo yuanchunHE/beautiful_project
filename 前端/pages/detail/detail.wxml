@@ -1,0 +1,25 @@
+<!--pages/detail/detail.wxml-->
+<!-- 第一部分 -->
+<view class="img">
+  <image wx:if="{{proInfo.imageurl}}" src="{{'http://localhost:8080/images/'+proInfo.imageurl}}" mode="scaleToFill"></image>
+</view>
+
+<!-- 第二部分 -->
+<view class="proInfo">
+  <view>
+    <text class="proName">{{proInfo.proname}}</text>
+    <text class="proPrice">价格：{{proInfo.proprice}}￥</text>
+    <text class="proDesc">
+    {{proInfo.proexplain}}</text>
+  </view>
+</view>
+
+<!-- 第三部分 -->
+<view class="proStep">
+  <view class="dtpn">详情描述</view>
+  <view class="dtp">{{proInfo.prostep}}</view>
+</view>
+
+<!-- 第四部分-->
+<button class="btn" bindtap="toOrder" data-img="{{proInfo.imageurl}}" data-proname="{{proInfo.proname}}" data-id="{{proInfo.id}}" style="width: 80%; height: 100rpx; color: white; background-color: purple;">立即预约
+</button>

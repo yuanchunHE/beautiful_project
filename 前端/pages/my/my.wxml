@@ -1,0 +1,32 @@
+<!--pages/my/my.wxml-->
+<view>
+  {{name}}
+</view>
+
+<view>
+  {{enjoy}}
+</view>
+
+<view>
+  <block wx:for="{{type}}" wx:key="type">
+    <view>
+      {{item.name}}
+    </view>
+    <view>
+      {{item.sex}}
+    </view>
+    <view>
+      {{item.age}}
+    </view>
+  </block>
+</view>
+
+<view wx:if="{{true}}">
+aaaa
+</view>
+
+
+<!--  点击事件 bind* bindtap data-*(自定义名字) data-id=-->
+<view class="btn" bindtap="toindex" data-name="如花">
+跳转主页
+</view>
