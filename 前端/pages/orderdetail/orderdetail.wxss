@@ -1,0 +1,42 @@
+.all{
+  width: 100%;
+  height: 100%;
+}
+.all .orderID {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 60rpx;
+  background-color: salmon;
+}
+.all .contain{
+
+  width: 80%;
+  height: 100%;
+  color: white;
+}
+.all .contain .item {
+  display: flex;
+  background-color: white;
+  flex-direction: row;
+
+}
+
+.all .QRcode {
+  display: flex;
+  flex-direction: column;
+
+  width:300rpx;
+  height: 300rpx;
+
+}
+.all .img {
+
+  width: 100%;
+  height: 300rpx;
+}
+.all .bottom{
+  width: 100%;
+  height: 120rpx;
+  background-color:  salmon;
+}

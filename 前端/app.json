@@ -9,7 +9,8 @@
     "pages/detail/detail",
     "pages/techdetail/techdetail",
     "pages/userdetail/userdetail",
-    "pages/userwallet/userwallet"
+    "pages/userwallet/userwallet",
+    "pages/orderdetail/orderdetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#8A2BE2",
