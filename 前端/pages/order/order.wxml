@@ -45,10 +45,30 @@
       <view class="orderFont">联系电话：</view>
       <input placeholder="请输入联系电话" type="number" name="usertell"></input>
     </view>
+
+    <view class="formItem">
+      <view class="orderFont">选择技师（点击名字进行选择）</view>
+      <view class="chooseTech">
+        <!-- 从技师界面进入，所以技师为默认 -->
+        <view wx:if="{{flag==1}}">
+          <view class="picker">当前选择>>{{techname}}</view>
+        </view>
+
+        <view wx:else>
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{techlist}}">
+            <view class="picker">
+              当前选择>>{{techlist[index]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
     <view class="formItem">
       <view class="orderFont">留言信息：</view>
       <input placeholder="请输入留言信息" type="text" name="information"></input>
     </view>
+
     <button formType="submit" style="width:80%" class="orderBtn">确认预定</button>
   </form>
 

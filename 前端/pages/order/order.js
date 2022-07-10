@@ -12,7 +12,11 @@ Page({
     "time": "12:11",
     "proid": "",
     "tecid": "",
-    "busid": ""
+    "busid": "",
+    "techlist": ["小乔","大乔","小貂禅"],
+    "index": 0,
+    "techname":"",
+    "flag":0,
   },
 
   /**
@@ -23,7 +27,7 @@ Page({
     //console.log(options);
     var image = options.image;
     var proname = options.proname;
-    var pid = options.pid;
+    var pid = options.proid;
     var tecid = options.tecid;
     var busid = options.busid;
     wx.request({
@@ -41,6 +45,28 @@ Page({
           "busid": busid,
         })
 
+      }
+    }),
+    wx.request({
+      url: 'http://localhost:8080/tecpro/techpro/'+pid,
+      method:"GET",
+
+      success: function (res){
+        //console.log(res);
+        that.setData({
+          "techlist":res.data.data,
+        })
+      }
+    }),
+    wx.request({
+      url: 'http://localhost:8080/technician/techid/'+tecid,
+      method:"GET",
+      success:function(res){
+        console.log(res);
+        that.setData({
+          "techname":res.data.data[0].techname,
+          "flag":1,
+        })
       }
     })
 
@@ -81,6 +107,12 @@ Page({
         })
       }
     })
-  }
+  },
+  bindPickerChange: function(e) {
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
 
 })

@@ -1,18 +1,18 @@
 // pages/my/my.js
+import {CheckByToken} from "../../utils/Check";
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     "username":"username",
+    "user":[],
   },
 
-  /**
-   * 页面初始化函数
-   */
   onLoad(options) {
-
+    var user = CheckByToken();
+    this.setData({
+      "user":user,
+      "username":user.username,
+    })
   },
 
   /**

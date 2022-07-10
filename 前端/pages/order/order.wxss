@@ -73,3 +73,7 @@ image{
   background-color: purple;
   margin: 40rpx 0;
 }
+.chooseTech .picker{
+  background-color: palevioletred;
+  color:black;
+}

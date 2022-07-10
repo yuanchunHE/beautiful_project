@@ -29,10 +29,12 @@ Page({
 
   totechdetail:function(options){
     //console.log(options);
-    var name = options.currentTarget.dataset.name;
+    var name = options.currentTarget.dataset.techname;
+    var busid = options.currentTarget.dataset.busid;
+    var imageurl = options.currentTarget.dataset.imageurl;
 
     wx.navigateTo({
-      url: '/pages/techdetail/techdetail?name='+name,
+      url: '/pages/techdetail/techdetail?name='+name+'&busid='+busid+'&imageurl='+imageurl,
     })
   },
 })
