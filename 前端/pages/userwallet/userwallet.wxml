@@ -1,0 +1,35 @@
+<!--pages/userwallet/userwallet.wxml-->
+<text>我的钱包</text>
+
+<view class="userinfo">
+  <image class="userinfo-avatar" src="/images/headpor.jpg" background-size="cover"></image>
+</view>
+
+<view class="walletinfo">
+    <view class="title">用户：邯郸王</view>
+  <view class="line"></view>
+
+  <view class='item'>
+    <view class="title">钱包余额：0.00元</view>
+  </view>
+  <view class="line"></view>
+  
+  <button class="recharge" type="primary">
+    <text class="font">钱包充值</text>
+    <image class="rechargeicon" src="/images/payicon.png" background-size="cover" mode="aspectFit">
+    </image>
+  </button>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
