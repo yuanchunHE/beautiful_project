@@ -26,8 +26,8 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into `order`(openid, proname, makedate, username, usertell, information)
-        values (#{openid}, #{proname}, #{makedate}, #{username}, #{usertell}, #{information})
+        insert into `order`(openid, proname, makedate, username, usertell,placedate,information)
+        values (#{openid}, #{proname}, #{makedate}, #{username}, #{usertell},NOW(), #{information})
     </insert>
 
 
