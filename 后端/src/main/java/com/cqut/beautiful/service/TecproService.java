@@ -1,6 +1,7 @@
 package com.cqut.beautiful.service;
 
 import com.cqut.beautiful.dto.Projects;
+import com.cqut.beautiful.entity.Technician;
 import com.cqut.beautiful.entity.Tecpro;
 
 import java.util.List;
@@ -52,4 +53,11 @@ public interface TecproService {
      * @return
      */
     List<Projects> queryByTechId(Integer id);
+
+    /**
+     * 通过项目id查找技师
+     * @param pid
+     * @return
+     */
+    List<Technician> queryProjectByPid(Integer pid);
 }
