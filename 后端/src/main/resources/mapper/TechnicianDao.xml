@@ -22,7 +22,7 @@
         select
           id, techexplain, techname, busid, imageurl
         from technician
-        where techname = #{name} and image.id = technician.imageid
+        where techname = #{name}
     </select>
 
 </mapper>
