@@ -79,13 +79,13 @@ Page({
     //console.log(options);
     var image = options.currentTarget.dataset.img;
     var proname = options.currentTarget.dataset.proname;
-    var id = options.currentTarget.dataset.id;
     var busid = options.currentTarget.dataset.busid;
     var tecid = options.currentTarget.dataset.tecid;
-    var proid = options.currentTarget.dataset.proid;
+    var proid = options.currentTarget.dataset.id;
 
     wx.navigateTo({
-      url: '/pages/order/order?image='+image+'&proname='+proname+'&pid='+id+'&busid='+busid+'&tecid='+tecid+'&proid='+proid,
+      url: '/pages/order/order?image='+image+'&proname='+proname+'&busid='+busid+'&tecid='+tecid+'&proid='+proid,
     })
   },
+
 })
