@@ -12,11 +12,14 @@ Page({
 
   onLoad(options) {
     var that = this;
+    //console.log(options);
       
     wx.request({
       url: 'http://localhost:8080/order/app/order/'+this.data.phoneNum,
       method:"GET",
       success:function(res){
+        //console.log(res);
+        //console.log(res.data.data)
         that.setData({
           "orders":res.data.data,
           "orderNum":res.data.data.length
@@ -24,12 +27,6 @@ Page({
       }
     })
   },
-  toOrderDetail:function(options){
-    //console.log(options);
-    var usertell = options.currentTarget.dataset.usertell;
-    wx.navigateTo({
-      url: '/pages/orderdetails/orderdetails?usertell='+usertell,
-    })
-  },
+
   
 })
