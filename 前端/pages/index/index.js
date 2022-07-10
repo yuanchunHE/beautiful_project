@@ -1,5 +1,7 @@
 // index.js
 // 获取应用实例
+const backAddress = getApp().globalData.url;
+import {GetImgAddress} from "../../utils/Image";
 
 Page({
   //属性
@@ -14,30 +16,30 @@ Page({
     var that = this;
     //ajak
     wx.request({
-      url: 'http://localhost:8080/image/banner',
+      url: backAddress + '/image/banner',
       method: "GET",
       success: function (res) {
-        //console.log(res);
+        GetImgAddress(res.data.data); 
         that.setData({
           "banner": res.data.data
         })
       }
     })
     wx.request({
-      url: 'http://localhost:8080/image/nav',
+      url: backAddress + +'/image/nav',
       method: "GET",
       success: function (res) {
-        //console.log(res);
+        GetImgAddress(res.data.data); 
         that.setData({
           "nav": res.data.data
         })
       }
     })
     wx.request({
-      url: 'http://localhost:8080/project/pro/推荐',
+      url: backAddress + '/project/pro/推荐',
       method: "GET",
       success: function (res) {
-        //console.log(res);
+        GetImgAddress(res.data.data); 
         that.setData({
           "sub": res.data.data
         })
@@ -53,7 +55,7 @@ Page({
     var navname = options.currentTarget.dataset.name;
     //console.log(name);
     wx.request({
-      url: 'http://localhost:8080/project/pro/' + navname,
+      url: backAddress + '/project/pro/' + navname,
       method: "GET",
       success: function (res) {
         //console.log(res);
@@ -79,13 +81,13 @@ Page({
     //console.log(options);
     var image = options.currentTarget.dataset.img;
     var proname = options.currentTarget.dataset.proname;
-    var id = options.currentTarget.dataset.id;
     var busid = options.currentTarget.dataset.busid;
     var tecid = options.currentTarget.dataset.tecid;
-    var proid = options.currentTarget.dataset.proid;
+    var proid = options.currentTarget.dataset.id;
 
     wx.navigateTo({
-      url: '/pages/order/order?image='+image+'&proname='+proname+'&pid='+id+'&busid='+busid+'&tecid='+tecid+'&proid='+proid,
+      url: '/pages/order/order?image='+image+'&proname='+proname+'&busid='+busid+'&tecid='+tecid+'&proid='+proid,
     })
   },
+
 })

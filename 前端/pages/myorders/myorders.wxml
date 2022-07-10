@@ -2,7 +2,7 @@
 
 <view class="userinfo">
   <text>我的订单</text>
-  <image class="userinfo-avatar" src="/images/headpor.jpg" background-size="cover" data-username="{{username}}"></image>
+  <image class="userinfo-avatar" src="{{userHeader}}" background-size="cover" data-username="{{username}}"></image>
   <text class="userinfo-nickname">{{username}}</text>
 </view>
 

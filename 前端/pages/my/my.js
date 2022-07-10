@@ -1,18 +1,14 @@
 // pages/my/my.js
+const backAddress = getApp().globalData.url;
+import {GetImgAddress} from "../../utils/Image";
+    //todo getuserName and getHeader
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    "username":"username",
+    "username"  : "username",
+    "userHeader": ""
   },
-
-  /**
-   * 页面初始化函数
-   */
   onLoad(options) {
-
+    //call getuserName and getHeader
   },
 
   /**

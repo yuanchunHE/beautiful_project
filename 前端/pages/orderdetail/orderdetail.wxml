@@ -7,11 +7,11 @@
   </view>
   <view class="content">
     <view class='item'>
-      <text class="number" decode="{{true}}">订单号：123</text>
+      <text class="number" decode="{{true}}">订单号：{{order.id}}</text>
     </view>
 
     <view class='item'>
-      <text class="ordertime">订单生成时间：12345678900</text>
+      <text class="ordertime">订单生成时间：{{order.placedate}}</text>
     </view>
 
     <view class='item'>
@@ -19,7 +19,7 @@
     </view>
 
     <view class='item'>
-      <text class="projecttype">预约项目：纯色甲油胶+磨砂</text>
+      <text class="projecttype">预约项目：{{order.proname}}</text>
     </view>
 
     <view class='item'>
@@ -37,9 +37,9 @@
     <view class='item'>
       <text class="line">XXX：xxx</text>
     </view>
-    <image class="QRcode" src="/images/QR.png"> </image>
+    <image class="QRcode" src="{{QRImgUrl}}"> </image>
   </view>
   
-  <image class="img" src="/images/p1.png" background-size="cover"></image>
+  <image class="img" src="{{BottomImgUrl}}" background-size="cover"></image>
   <view class="bottom"></view>
 </view>

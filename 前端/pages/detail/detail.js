@@ -1,4 +1,6 @@
 // pages/detail/detail.js
+const backAddress = getApp().globalData.url;
+import {GetImgAddress} from "../../utils/Image";
 Page({
 
   /**
@@ -18,10 +20,10 @@ Page({
     console.log(options);
     
     wx.request({
-      url: 'http://localhost:8080/project/detail/'+pid,
+      url: backAddress + '/project/detail/'+pid,
       method:"GET",
       success:function(res){
-        //console.log(res);
+        GetImgAddress(res.data.data); 
         that.setData({
           "proInfo":res.data.data,
         })

@@ -1,25 +1,18 @@
 // pages/teach/teach.js
+const backAddress = getApp().globalData.url;
+import {GetImgAddress} from "../../utils/Image";
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     "sub": [],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
     var that = this;
-
     wx.request({
-      url: 'http://localhost:8080/technician/tech/全部',
+      url: backAddress + '/technician/tech/全部',
       method:"GET",
       success:function(res){
-        //console.log(res);
-
+        GetImgAddress(res.data.data);
         that.setData({
           "sub":res.data.data
         })

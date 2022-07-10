@@ -88,5 +88,7 @@ public interface UserDao {
 
 
     User queryUserByOpenid(String openid);
+
+    User queryUserByToken(String tokenid);
 }
 

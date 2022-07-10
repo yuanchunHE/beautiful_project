@@ -3,7 +3,7 @@
   <swiper class="lb" indicator-dots="true" indicator-active-color="#8A2BE2" autoplay="true" interval="1000">
     <block wx:for="{{banner}}" wx:key="banner">
       <swiper-item>
-        <image src="{{'http://localhost:8080/images/' + item.imageurl}}"></image>
+        <image src="{{item.imageurl}}"></image>
       </swiper-item>
     </block>
   </swiper>
@@ -15,7 +15,7 @@
   <view class="nav">
     <block wx:for="{{nav}}" wx:key="nav">
       <view class="nav-item" bindtap="navpro" data-name="{{item.imagetitle}}">
-        <image src="{{'http://localhost:8080/images/' + item.imageurl}}"></image>
+        <image src="{{item.imageurl}}"></image>
         <text>{{item.imagetitle}}</text>
       </view>
     </block>
@@ -28,7 +28,7 @@
     <block wx:for="{{sub}}" wx:key="sub">
       <view class="list-item" bindtap="todetail" data-id="{{item.id}}" data-img="{{item.imageurl}}">
         <view class="img">
-          <image src="{{'http://localhost:8080/images/' + item.imageurl}}"></image>
+          <image src="{{item.imageurl}}"></image>
         </view>
         <view class="text">
           <view class="sub-name">{{item.proname}}</view>

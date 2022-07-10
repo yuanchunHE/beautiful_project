@@ -1,7 +1,7 @@
 <!--pages/my/my.wxml-->
 
 <view class="userinfo">
-  <image bindtap="viewUserDetail" class="userinfo-avatar" src="/images/headpor.jpg" background-size="cover" data-username="{{username}}"></image>
+  <image bindtap="viewUserDetail" class="userinfo-avatar" src="{{userHeader}}" background-size="cover" data-username="{{username}}"></image>
   <text class="userinfo-nickname">{{username}}</text>
 </view>
 

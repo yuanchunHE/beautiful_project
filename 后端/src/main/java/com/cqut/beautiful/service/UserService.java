@@ -49,4 +49,6 @@ public interface UserService {
 
 
     User queryUserByOpenid(String openid);
+
+    User queryUserByToken(String tokenid);
 }

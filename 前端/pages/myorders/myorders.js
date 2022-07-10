@@ -1,20 +1,20 @@
 // pages/myorders/myorders.js
-Page({
+const backAddress = getApp().globalData.url;
+import {GetImgAddress} from "../../utils/Image";
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
     "phoneNum" : "15892222603",
     "orders":[],
     "orderNum" : 0,
     "username":"username",
+    "userHeader": ""
   },
 
   onLoad(options) {
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/order/app/order/'+this.data.phoneNum,
+      url: backAddress + '/order/app/order/'+this.data.phoneNum,
       method:"GET",
       success:function(res){
         console.log(res);

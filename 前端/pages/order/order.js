@@ -1,9 +1,9 @@
 // pages/order/order.js
+//todo!!
+const backAddress = getApp().globalData.url;
+import {GetImgAddress} from "../../utils/Image";
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     "busname": "",
     "proname": "",
@@ -31,7 +31,7 @@ Page({
     var tecid = options.tecid;
     var busid = options.busid;
     wx.request({
-      url: 'http://localhost:8080/business/app/busname/' + pid,
+      url: backAddress + '/business/app/busname/' + pid,
       method: "GET",
 
       success: function (res) {
@@ -48,7 +48,7 @@ Page({
       }
     }),
     wx.request({
-      url: 'http://localhost:8080/tecpro/techpro/'+pid,
+      url: backAddress + '/tecpro/techpro/'+pid,
       method:"GET",
 
       success: function (res){
@@ -59,7 +59,7 @@ Page({
       }
     }),
     wx.request({
-      url: 'http://localhost:8080/technician/techid/'+tecid,
+      url: backAddress + '/technician/techid/'+tecid,
       method:"GET",
       success:function(res){
         //console.log(res);
@@ -89,7 +89,7 @@ Page({
     var that = this;
     //console.log(that.data);
     wx.request({
-      url: 'http://localhost:8080/order/app/order',
+      url: backAddress + '/order/app/order',
       method: "POST",
       data: {
         "busid": that.data.busid,

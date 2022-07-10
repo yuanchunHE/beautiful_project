@@ -16,6 +16,15 @@
     </resultMap>
 
     <!--根据openid查询单个用户-->
+    <select id="queryUserByToken" resultMap="UserMap">
+        select
+            id, nickname, openid, imageurl, sessionkey, token, username, phone, `password`, sysToken
+        from `user`
+        where token = #{tokenid}
+    </select>
+
+
+    <!--根据openid查询单个用户-->
     <select id="queryUserByOpenid" resultMap="UserMap">
         select
           id, nickname, openid, imageurl, sessionkey, token, username, phone, `password`, sysToken

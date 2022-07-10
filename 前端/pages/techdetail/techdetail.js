@@ -1,14 +1,10 @@
 // pages/techdetail/techdetail.js
+const backAddress = getApp().globalData.url;
+import {GetImgAddress} from "../../utils/Image";
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    "techname":"",
-    "busid":"",
-    "imageurl":"",
-    "techInfo":[],
+    "technician":"",
     "techPro":[],
   },
 
@@ -23,21 +19,19 @@ Page({
     var busid = options.busid;
 
     wx.request({
-      url: 'http://localhost:8080/technician/tech/'+techname,
+      url: backAddress + '/technician/tech/' + techname,
       method:"GET",
       success:function(res){
-        //console.log(res);
-        var that2 = that;
-        var techId = res.data.data[0].id;
+        //todo 修改为不要数组的
+        GetImgAddress(res.data.data[0]);
         that.setData({
-          "techInfo":res.data.data[0],
-          "imageurl":imageurl,
-        })
+          "technician": res.data.data[0],
+        });
         wx.request({
-          url: 'http://localhost:8080/tecpro/tech/'+techId,
+          url: backAddress + '/tecpro/tech/'+res.data.data[0].id,
           success:function(res){
-            //console.log(res);
-            that2.setData({
+            GetImgAddress(res.data.data);
+            that.setData({
               "techPro":res.data.data,
             })
           }

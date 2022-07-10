@@ -1,7 +1,7 @@
 <!--pages/detail/detail.wxml-->
 <!-- 第一部分 -->
 <view class="img">
-  <image wx:if="{{proInfo.imageurl}}" src="{{'http://localhost:8080/images/'+proInfo.imageurl}}" mode="scaleToFill"></image>
+  <image wx:if="{{proInfo.imageurl}}" src="{{proInfo.imageurl}}" mode="scaleToFill"></image>
 </view>
 
 <!-- 第二部分 -->

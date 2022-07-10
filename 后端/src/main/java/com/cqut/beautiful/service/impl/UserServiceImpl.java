@@ -87,4 +87,9 @@ public class UserServiceImpl implements UserService {
 
         return this.userDao.queryUserByOpenid(openid);
     }
+
+    @Override
+    public User queryUserByToken(String tokenid) {
+        return this.userDao.queryUserByToken(tokenid);
+    }
 }

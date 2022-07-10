@@ -1,15 +1,15 @@
 <!--pages/techdetail/techdetail.wxml-->
 <!-- 第一部分 -->
 <view class="img">
-  <image src="/images/j1.png" mode="scaleToFill"></image>
+  <image src="{{technician.imageurl}}" mode="scaleToFill"></image>
 </view>
 
 <!-- 第二部分 -->
 <view class="techInfo">
   <view>
-    <text class="techName">{{techInfo.techname}}
+    <text class="techName">{{technician.techname}}
     </text>
-    <text class="techDesc">{{techInfo.techexplain}}
+    <text class="techDesc">{{technician.techexplain}}
     </text>
   </view>
 </view>
@@ -19,7 +19,7 @@
 <block wx:if="{{techPro}}" wx:for="{{techPro}}" wx:key="techPro">
       <view class="list-item">
         <view class="img">
-          <image src="{{'http://localhost:8080/images/'+item.imageurl}}"></image>
+          <image src="{{item.imageurl}}"></image>
         </view>
         <view class="text">
           <view class="sub-name">{{item.proname}}</view>
