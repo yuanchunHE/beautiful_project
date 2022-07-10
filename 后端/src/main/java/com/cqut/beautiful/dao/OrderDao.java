@@ -1,5 +1,6 @@
 package com.cqut.beautiful.dao;
 
+import com.cqut.beautiful.dto.Orders;
 import com.cqut.beautiful.entity.Order;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.data.domain.Pageable;
@@ -85,6 +86,6 @@ public interface OrderDao {
      * @param phone
      * @return
      */
-    List<Order> queryOrderByPhone(String phone);
+    List<Orders> queryOrderByPhone(String phone);
 }
 

@@ -1,5 +1,6 @@
 package com.cqut.beautiful.service;
 
+import com.cqut.beautiful.dto.Orders;
 import com.cqut.beautiful.entity.Order;
 
 import java.util.List;
@@ -25,5 +26,5 @@ public interface OrderService {
      * @param phone
      * @return
      */
-    List<Order> queryOrderByPhone(String phone);
+    List<Orders> queryOrderByPhone(String phone);
 }

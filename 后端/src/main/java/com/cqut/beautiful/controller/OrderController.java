@@ -1,5 +1,6 @@
 package com.cqut.beautiful.controller;
 
+import com.cqut.beautiful.dto.Orders;
 import com.cqut.beautiful.entity.Order;
 import com.cqut.beautiful.result.ResultCode;
 import com.cqut.beautiful.result.ResultData;
@@ -52,7 +53,7 @@ public class OrderController {
     public ResultData queryOrderByPhone(@PathVariable String phone){
 
         //处理请求
-        List<Order> order = orderService.queryOrderByPhone(phone);
+        List<Orders> order = orderService.queryOrderByPhone(phone);
 
         ResultData resultData = new ResultData(ResultCode.SUCCESS, order);
 

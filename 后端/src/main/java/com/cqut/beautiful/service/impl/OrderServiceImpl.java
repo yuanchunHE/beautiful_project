@@ -1,6 +1,7 @@
 package com.cqut.beautiful.service.impl;
 
 import com.cqut.beautiful.dao.OrderDao;
+import com.cqut.beautiful.dto.Orders;
 import com.cqut.beautiful.entity.Order;
 import com.cqut.beautiful.service.OrderService;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public List<Order> queryOrderByPhone(String phone) {
+    public List<Orders> queryOrderByPhone(String phone) {
         return orderDao.queryOrderByPhone(phone);
     }
 

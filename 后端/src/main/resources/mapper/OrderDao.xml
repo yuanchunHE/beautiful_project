@@ -19,8 +19,11 @@
 
 
     <!--通过用户电话查找订单-->
-    <select id="queryOrderByPhone" resultMap="OrderMap">
-       SELECT * FROM `order` where usertell = #{phone}
+    <select id="queryOrderByPhone" resultType="com.cqut.beautiful.dto.Orders">
+    SELECT
+    `order`.id,openid,proname,makedate,username,orderstate,placedate,usertell,information,`order`.busid,`order`.proid,tecid,techname
+    FROM `order`,technician
+    where usertell = #{phone} and  technician.id =  tecid
     </select>
 
 
