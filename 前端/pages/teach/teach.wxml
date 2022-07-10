@@ -4,7 +4,7 @@
 <view class="content-bottom">
   <view class="sub-list">
     <block wx:for="{{sub}}" wx:key="sub">
-      <view class="list-item">
+      <view class="list-item" bindtap="totechdetail" data-name="{{item.techname}}">
         <view class="img">
           <image src="{{'http://localhost:8080/images/' + item.imageurl}}"></image>
         </view>

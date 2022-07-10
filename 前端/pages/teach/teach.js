@@ -26,4 +26,13 @@ Page({
       }
     })
   },
+
+  totechdetail:function(options){
+    //console.log(options);
+    var name = options.currentTarget.dataset.name;
+
+    wx.navigateTo({
+      url: '/pages/techdetail/techdetail?name='+name,
+    })
+  },
 })
