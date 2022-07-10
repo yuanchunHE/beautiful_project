@@ -6,7 +6,8 @@
     "pages/order/order",
     "pages/my/my",
     "pages/teach/teach",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/techdetail/techdetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#8A2BE2",

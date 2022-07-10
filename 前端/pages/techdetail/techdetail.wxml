@@ -16,18 +16,18 @@
 
 <view class="content-bottom">
   <view class="sub-list">
-
+<block wx:if="{{techPro}}" wx:for="{{techPro}}" wx:key="techPro">
       <view class="list-item">
         <view class="img">
-          <image src="/images/p21.png"></image>
+          <image src="{{'http://localhost:8080/images/'+item.imageurl}}"></image>
         </view>
         <view class="text">
-          <view class="sub-name">纯色甲油胶＋磨砂</view>
-          <view class="sub-price">价格：88.00￥</view>
-          <view class="sub-desc">描述：甲油胶的成份,甲油胶的主要成分,甲油胶的配方,技术支持,微谱技术分析,提供各类产品检测,独立实验室,仪器齐全,全新配方分析,专业成分分析报告,</view>
+          <view class="sub-name">{{item.proname}}</view>
+          <view class="sub-price">价格：{{item.proprice}}</view>
+          <view class="sub-desc">描述：{{item.proexplain}}</view>
           <view class="btn" bindtap="toOrder">预约</view>
         </view>
       </view>
-
+    </block>
   </view>
 </view>
