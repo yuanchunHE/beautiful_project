@@ -1,0 +1,19 @@
+<!--pages/userdetail/userdetail.wxml-->
+<view class="userinfo">
+  <image class="userinfo-avatar" src="/images/headpor.jpg" background-size="cover"></image>
+</view>
+
+<view class='item'>
+  <view class="title">用户名：username</view>
+</view>
+<view class="line"></view>
+
+<view class='item'>
+  <view class="title">电话号码：12345678900</view>
+</view>
+<view class="line"></view>
+
+<view class='item'>
+  <view class="title">邮箱：gmail@gmail.com</view>
+</view>
+<view class="line"></view>

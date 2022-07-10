@@ -2,6 +2,7 @@ package com.cqut.beautiful.controller;
 
 import com.cqut.beautiful.entity.User;
 import com.cqut.beautiful.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("user")
+@Api(tags = "用户")
 public class UserController {
     /**
      * 服务对象

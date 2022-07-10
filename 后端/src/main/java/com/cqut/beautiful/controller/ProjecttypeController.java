@@ -2,6 +2,7 @@ package com.cqut.beautiful.controller;
 
 import com.cqut.beautiful.entity.Projecttype;
 import com.cqut.beautiful.service.ProjecttypeService;
+import io.swagger.annotations.Api;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("projecttype")
+@Api(tags = "项目类型")
 public class ProjecttypeController {
     /**
      * 服务对象
