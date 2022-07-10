@@ -61,19 +61,19 @@ Page({
   },
   formSubmit: function (options) {
     var that = this;
-    //console.log(options);
+    console.log(that.data);
     wx.request({
       url: 'http://localhost:8080/order/app/order',
       method: "POST",
       data: {
-        "proname": that.data.proname,
-        "makedate": that.data.date + ' ' + that.data.time,
-        "username": options.detail.value.username,
-        "usertell": options.detail.value.usertell,
+        "busid": that.data.busid,
         "information": options.detail.value.information,
-        "busid": that.busid,
-        "tecid": that.tecid,
-        "proid": that.proid,
+        "makedate": that.data.date + ' ' + that.data.time,
+        "proid": that.data.proid,
+        "proname": that.data.proname,
+        "tecid": that.data.tecid,
+        "username": options.detail.value.username,
+        "usertell": options.detail.value.usertell
       },
       success:function(res){
         wx.switchTab({

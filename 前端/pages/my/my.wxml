@@ -16,7 +16,7 @@
 
 <view class="line"></view>
 <view class="item">
-  <view class="title">我的钱包</view>
+  <view class="title" bindtap="viewUserWallet">我的钱包</view>
   <view class="detail2">
     <text>></text>
   </view>

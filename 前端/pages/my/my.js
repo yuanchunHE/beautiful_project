@@ -25,5 +25,13 @@ Page({
     wx.navigateTo({
       url: '/pages/userdetail/userdetail?username='+username,
     })
+  },
+
+  viewUserWallet:function(options){
+    wx.navigateTo({
+      url: '/pages/userwallet/userwallet',
+    })
   }
 })
+
+
