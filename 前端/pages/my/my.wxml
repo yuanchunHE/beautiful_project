@@ -24,7 +24,7 @@
 
 <view class="line"></view>
 <view class='item'>
-  <view class="title">我的订单</view>
+  <view class="title" bindtap="viewUserOrders">我的订单</view>
   <view class="detail2">
     <text>></text>
   </view>

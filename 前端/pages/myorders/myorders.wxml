@@ -2,12 +2,12 @@
 
 <view class="userinfo">
   <text>我的订单</text>
-  <image bindtap="viewUserDetail" class="userinfo-avatar" src="/images/headpor.jpg" background-size="cover" data-username="{{username}}"></image>
+  <image class="userinfo-avatar" src="/images/headpor.jpg" background-size="cover" data-username="{{username}}"></image>
   <text class="userinfo-nickname">{{username}}</text>
 </view>
 
 <view wx:for="{{orders}}" wx:key="orders">
-  <view class="order">
+  <view class="order" bindtap="toOrderDetail">
     <text class="orderinfo">订单：</text>
     <text class="orderinfo">项目：{{item.proname}}</text>
     <text class="orderinfo">预约时间：{{item.makedate}}</text>

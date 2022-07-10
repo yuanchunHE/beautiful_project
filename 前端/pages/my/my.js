@@ -31,6 +31,11 @@ Page({
     wx.navigateTo({
       url: '/pages/userwallet/userwallet',
     })
+  },
+  viewUserOrders:function(options){
+    wx.navigateTo({
+      url: '/pages/myorders/myorders',
+    })
   }
 })
 

@@ -1,17 +1,17 @@
 /*
- Navicat Premium Data Transfer
+ Navicat MySQL Data Transfer
 
- Source Server         : xylocal
+ Source Server         : localhost_3306
  Source Server Type    : MySQL
- Source Server Version : 80028
+ Source Server Version : 80029
  Source Host           : localhost:3306
  Source Schema         : beautiful
 
  Target Server Type    : MySQL
- Target Server Version : 80028
+ Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 13/06/2022 22:47:14
+ Date: 11/07/2022 00:24:55
 */
 
 SET NAMES utf8mb4;
@@ -21,20 +21,19 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for business
 -- ----------------------------
 DROP TABLE IF EXISTS `business`;
-CREATE TABLE `business` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `busname` varchar(255) DEFAULT NULL COMMENT '商家名称',
-  `busaddress` varchar(255) DEFAULT NULL COMMENT '商家地址',
-  `busexplain` varchar(255) DEFAULT NULL COMMENT '商家介绍',
-  `bustell` varchar(20) DEFAULT NULL COMMENT '商家电话',
-  `servertime` varchar(100) DEFAULT NULL COMMENT '服务时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `business`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `busname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商家名称',
+  `busaddress` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商家地址',
+  `busexplain` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商家介绍',
+  `bustell` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商家电话',
+  `servertime` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '服务时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of business
 -- ----------------------------
-BEGIN;
 INSERT INTO `business` VALUES (2, '千锋美容美发111', '成都市武侯区肖家河大厦三楼25教室', '千峰美容美发养生馆是集美容.美发.纹绣.养生为一体的专业服务团队。一楼美发厅拥有专业发型设计师8人为您提供新潮时尚的发型设计', '028-35647899', '9：00 - 18：00');
 INSERT INTO `business` VALUES (3, '再清椿美容', '成都市武侯区肖家河大厦', '千峰美容美发养生馆是集美容.美发.纹绣.养生为一体的专业服务团队。一楼美发厅拥有专业发型设计师8人为您提供新潮时尚的发型设计', '028-35647877', '9：00 - 18：00');
 INSERT INTO `business` VALUES (4, '珍妮优健康美容连锁', '成都市武侯区肖家河大厦', '千峰美容美发养生馆是集美容.美发.纹绣.养生为一体的专业服务团队。一楼美发厅拥有专业发型设计师8人为您提供新潮时尚的发型设计', '028-35647877', '9：00 - 18：00');
@@ -47,34 +46,32 @@ INSERT INTO `business` VALUES (11, '千锋美容美发11', '成都市武侯区�
 INSERT INTO `business` VALUES (23, '攀枝花西域中心', '成都机场路', '来了就走不了', '16765666666', '00:00:00 - 23:59:59');
 INSERT INTO `business` VALUES (24, '阿大撒', '啊实打实', '1566666666615666666666156666666661566666666615666666666', '15666666666', '00:00:00 - 23:59:59');
 INSERT INTO `business` VALUES (26, '赫尔曼商业集团', '赫尔曼大厦', '购买商品你的不二选择', '17700698401', '09:04:02 - 21:56:55');
-COMMIT;
 
 -- ----------------------------
 -- Table structure for image
 -- ----------------------------
 DROP TABLE IF EXISTS `image`;
-CREATE TABLE `image` (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '图片id',
-  `imageurl` varchar(100) DEFAULT NULL COMMENT '图片路径',
-  `imagetitle` varchar(50) DEFAULT NULL COMMENT '图片标题',
-  `imagetype` varchar(50) DEFAULT NULL COMMENT '图片类型 banner：首页轮播图 nav：菜单 head：头像',
-  `imagestate` varchar(10) DEFAULT NULL COMMENT '图片状态  1：可用  0：不可用',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `image`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '图片id',
+  `imageurl` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图片路径',
+  `imagetitle` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图片标题',
+  `imagetype` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图片类型 banner：首页轮播图 nav：菜单 head：头像',
+  `imagestate` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图片状态  1：可用  0：不可用',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of image
 -- ----------------------------
-BEGIN;
-INSERT INTO `image` VALUES (1, 'http://localhost:8081/images/banner_01.png', 'banner', 'banner', '1');
-INSERT INTO `image` VALUES (2, 'http://localhost:8081/images/banner_02.png', 'banner', 'banner', '1');
-INSERT INTO `image` VALUES (3, 'http://localhost:8081/images/banner_03.png', 'banner', 'banner', '1');
-INSERT INTO `image` VALUES (4, 'http://localhost:8081/images/banner_04.png', 'banner', 'banner', '1');
-INSERT INTO `image` VALUES (5, 'http://localhost:8081/images/nav_icon_01.png', '推荐', 'nav', '1');
-INSERT INTO `image` VALUES (6, 'http://localhost:8081/images/nav_icon_02.png', '美甲', 'nav', '1');
-INSERT INTO `image` VALUES (7, 'http://localhost:8081/images/nav_icon_03.png', '美容', 'nav', '1');
-INSERT INTO `image` VALUES (8, 'http://localhost:8081/images/nav_icon_04.png', '美发', 'nav', '1');
-INSERT INTO `image` VALUES (9, 'http://localhost:8081/images/nav_icon_05.png', '睫毛', 'nav', '1');
+INSERT INTO `image` VALUES (1, 'banner_01.png', 'banner', 'banner', '1');
+INSERT INTO `image` VALUES (2, 'banner_02.png', 'banner', 'banner', '1');
+INSERT INTO `image` VALUES (3, 'banner_03.png', 'banner', 'banner', '1');
+INSERT INTO `image` VALUES (4, 'banner_04.png', 'banner', 'banner', '1');
+INSERT INTO `image` VALUES (5, 'nav_icon_01.png', '推荐', 'nav', '1');
+INSERT INTO `image` VALUES (6, 'nav_icon_02.png', '美甲', 'nav', '1');
+INSERT INTO `image` VALUES (7, 'nav_icon_03.png', '美容', 'nav', '1');
+INSERT INTO `image` VALUES (8, 'nav_icon_04.png', '美发', 'nav', '1');
+INSERT INTO `image` VALUES (9, 'nav_icon_05.png', '睫毛', 'nav', '1');
 INSERT INTO `image` VALUES (10, 'b1.png', '千峰美容美发商家', 'bus', '1');
 INSERT INTO `image` VALUES (11, 'p1.png', '产品', 'pro', '1');
 INSERT INTO `image` VALUES (12, 'p2.png', '产品', 'pro', '1');
@@ -126,67 +123,74 @@ INSERT INTO `image` VALUES (57, 'p57.png', '产品', 'pro', '1');
 INSERT INTO `image` VALUES (58, 'p58.png', '产品', 'pro', '1');
 INSERT INTO `image` VALUES (59, 'p59.png', '产品', 'pro', '1');
 INSERT INTO `image` VALUES (60, 'p60.png', '产品', 'pro', '1');
-COMMIT;
 
 -- ----------------------------
 -- Table structure for order
 -- ----------------------------
 DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order` (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '订单id',
-  `openid` varchar(255) DEFAULT NULL COMMENT '关联user表的openId',
-  `proname` varchar(255) DEFAULT NULL COMMENT '项目名称',
-  `makedate` datetime DEFAULT NULL COMMENT '预约时间',
-  `username` varchar(50) DEFAULT NULL COMMENT '预约客户姓名',
-  `orderstate` varchar(10) DEFAULT NULL COMMENT '预约状态',
-  `placedate` datetime DEFAULT NULL COMMENT '下单时间',
-  `usertell` varchar(50) DEFAULT NULL COMMENT '手机号',
-  `information` varchar(255) DEFAULT NULL COMMENT '留言',
-  `busid` bigint DEFAULT NULL COMMENT '关联商家id',
-  `proid` bigint DEFAULT '0' COMMENT '关联产品id',
-  `tecid` bigint DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `order`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '订单id',
+  `openid` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '关联user表的openId',
+  `proname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目名称',
+  `makedate` datetime(0) NULL DEFAULT NULL COMMENT '预约时间',
+  `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '预约客户姓名',
+  `orderstate` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '预约状态',
+  `placedate` datetime(0) NULL DEFAULT NULL COMMENT '下单时间',
+  `usertell` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号',
+  `information` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '留言',
+  `busid` bigint(0) NULL DEFAULT NULL COMMENT '关联商家id',
+  `proid` bigint(0) NULL DEFAULT 0 COMMENT '关联产品id',
+  `tecid` bigint(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-BEGIN;
-INSERT INTO `order` VALUES (37, '06480', '牛奶浴', '2022-04-30 00:48:00', '靓仔', '0', '2022-04-29 16:53:33', '15892222603', '我需要5号技师', 2, 2, NULL);
-INSERT INTO `order` VALUES (38, 'fb5d1', '单人养生按摩护理套餐', '2022-05-02 22:00:00', 'liangzai', '0', '2022-05-03 10:32:16', '15892222603', '奥利给', NULL, 22, NULL);
-INSERT INTO `order` VALUES (39, 'e088c', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-03 10:37:01', '15892222603', '', NULL, 22, NULL);
-INSERT INTO `order` VALUES (40, '984b5', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-03 10:37:53', '', '', NULL, 22, NULL);
-INSERT INTO `order` VALUES (41, '67478', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-03 10:38:32', '15892222603', '', NULL, 22, NULL);
+INSERT INTO `order` VALUES (37, '06480', '牛奶浴', '2022-04-30 00:48:00', '靓仔', '0', '2022-04-29 16:53:33', '15892222603', '我需要5号技师', 2, 2, 1);
+INSERT INTO `order` VALUES (38, 'fb5d1', '单人养生按摩护理套餐', '2022-05-02 22:00:00', 'liangzai', '0', '2022-05-03 10:32:16', '15892222603', '奥利给', NULL, 22, 5);
+INSERT INTO `order` VALUES (39, 'e088c', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-03 10:37:01', '15892222603', '', NULL, 22, 3);
+INSERT INTO `order` VALUES (40, '984b5', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-03 10:37:53', '', '', NULL, 22, 8);
+INSERT INTO `order` VALUES (41, '67478', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-03 10:38:32', '15892222603', '', NULL, 22, 12);
 INSERT INTO `order` VALUES (42, 'c0db0', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-03 10:39:24', '15892222603', '', NULL, 22, NULL);
 INSERT INTO `order` VALUES (43, '33030', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-03 10:41:43', '15892222603', '', NULL, 22, NULL);
 INSERT INTO `order` VALUES (44, '2923b', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-03 10:56:37', '15892222603', '', NULL, 22, NULL);
 INSERT INTO `order` VALUES (45, '881d7', '单人养生按摩护理套餐', '2022-05-01 22:00:00', '', '0', '2022-05-04 10:24:50', '15892222603', '', NULL, 22, NULL);
 INSERT INTO `order` VALUES (46, '8775b', '牛奶浴', '2022-04-30 00:48:00', '靓仔', '0', '2022-05-18 15:49:03', '15892222603', '我需要5号技师', 2, 2, NULL);
 INSERT INTO `order` VALUES (47, 'ae94e', '牛奶浴', '2022-04-30 00:48:00', '靓仔', '0', '2022-05-18 16:02:18', '15892222603', '我需要5号技师', 2, 2, NULL);
-COMMIT;
+INSERT INTO `order` VALUES (48, '1', '美容', '2022-07-07 20:12:21', '战士', NULL, NULL, '18888888888', 'AAA', NULL, 0, NULL);
+INSERT INTO `order` VALUES (49, '1', '美容', '2022-07-07 20:12:21', '战士', NULL, NULL, '18888888888', 'AAA', NULL, 0, NULL);
+INSERT INTO `order` VALUES (50, NULL, '单人韩式睫毛嫁接套餐（路源美睫美甲）', '2022-07-09 19:11:00', '1', NULL, NULL, '1', '1', NULL, 0, NULL);
+INSERT INTO `order` VALUES (51, NULL, '汉草堂烫染套餐', '2022-07-09 19:11:00', '汉子', NULL, NULL, '1888888', '不要啊', NULL, 0, NULL);
+INSERT INTO `order` VALUES (52, NULL, '纯色甲油胶＋磨砂', '2022-07-09 20:11:00', '嘉然小姐', NULL, NULL, '123456789', '么么哒', NULL, 0, NULL);
+INSERT INTO `order` VALUES (53, NULL, '美甲豪华套餐', '2022-07-09 20:11:00', '嘉然小姐', NULL, NULL, '123456789', 'biu~', NULL, 0, 1);
+INSERT INTO `order` VALUES (54, NULL, NULL, NULL, NULL, NULL, '2022-07-10 16:37:16', NULL, NULL, NULL, 0, NULL);
+INSERT INTO `order` VALUES (55, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `order` VALUES (56, '123', '123', '2022-07-07 21:21:12', '123', NULL, '2022-07-10 16:38:52', '12345678900', '123', NULL, 0, NULL);
+INSERT INTO `order` VALUES (57, NULL, '纯色甲油胶＋磨砂', '2022-07-09 20:11:00', '晚晚', NULL, '2022-07-10 16:41:19', '987654321', '嘿嘿', NULL, 0, NULL);
+INSERT INTO `order` VALUES (58, NULL, '纯色甲油胶＋磨砂', '2022-07-09 20:11:00', '丁真', NULL, '2022-07-10 21:47:59', '110', '一眼', 2, 1, NULL);
 
 -- ----------------------------
 -- Table structure for project
 -- ----------------------------
 DROP TABLE IF EXISTS `project`;
-CREATE TABLE `project` (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '项目id',
-  `proexplain` varchar(255) DEFAULT NULL COMMENT '项目介绍',
-  `proprice` double(8,2) DEFAULT '0.00' COMMENT '项目价格',
-  `prostep` varchar(255) DEFAULT NULL COMMENT '项目步骤',
-  `protypeid` bigint DEFAULT NULL COMMENT '关联项目类型id',
-  `proname` varchar(255) DEFAULT NULL COMMENT '项目名称',
-  `imageid` bigint DEFAULT NULL COMMENT '关联图片id',
-  `prostatus` varchar(20) DEFAULT NULL COMMENT '项目状态',
-  `busid` bigint DEFAULT NULL COMMENT '关联公司id',
-  `tecid` bigint DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `project`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '项目id',
+  `proexplain` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目介绍',
+  `proprice` double(8, 2) NULL DEFAULT 0.00 COMMENT '项目价格',
+  `prostep` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目步骤',
+  `protypeid` bigint(0) NULL DEFAULT NULL COMMENT '关联项目类型id',
+  `proname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目名称',
+  `imageid` bigint(0) NULL DEFAULT NULL COMMENT '关联图片id',
+  `prostatus` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目状态',
+  `busid` bigint(0) NULL DEFAULT NULL COMMENT '关联公司id',
+  `tecid` bigint(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of project
 -- ----------------------------
-BEGIN;
 INSERT INTO `project` VALUES (1, '甲油胶的成份,甲油胶的主要成分,甲油胶的配方,技术支持,微谱技术分析,提供各类产品检测,独立实验室,仪器齐全,全新配方分析,专业成分分析报告,', 88.00, '1：消毒美甲师的手和客人的手\n\n2：与客人共同设计适合甲型并修甲型\n\n3：修剪死皮，祛除多余角质，护理指缘\n\n4：根据自己喜好选色，试色\n\n5：涂抹底胶\n\n6：涂抹色胶\n\n7：款式设计\n\n8：涂抹加固\n\n9：涂抹封层\n\n10：对已做好的指甲进行检查\n\n11：清洁手部\n\n12：OPI指缘油护理\n\n13：保湿手霜护理', 3, '纯色甲油胶＋磨砂', 11, '1', 2, NULL);
 INSERT INTO `project` VALUES (2, '甲油是用来修饰和增加指甲美观的化妆品，它能在指甲表面形成一层耐摩擦的薄膜，起到保护、美化指甲的作用。', 100.00, '1：消毒美甲师的手和客人的手\n\n2：与客人共同设计适合甲型并修甲型\n\n3：修剪死皮，祛除多余角质，护理指缘\n\n4：根据自己喜好选色，试色\n\n5：涂抹底胶\n\n6：涂抹色胶\n\n7：款式设计\n\n8：涂抹加固\n\n9：涂抹封层\n\n10：对已做好的指甲进行检查\n\n11：清洁手部\n\n12：OPI指缘油护理\n\n13：保湿手霜护理', 3, '蛋糕甲油胶纯色+手部SPA', 12, '1', 2, NULL);
 INSERT INTO `project` VALUES (3, '美甲是根据客人的手形、甲形、肤质、服装的色彩和要求，对指（趾）甲进行消毒、清洁、护理、保养、修饰美化的过程。', 288.00, '1：消毒美甲师的手和客人的手\n\n2：与客人共同设计适合甲型并修甲型\n\n3：修剪死皮，祛除多余角质，护理指缘\n\n4：根据自己喜好选色，试色\n\n5：涂抹底胶\n\n6：涂抹色胶\n\n7：款式设计\n\n8：涂抹加固\n\n9：涂抹封层\n\n10：对已做好的指甲进行检查\n\n11：清洁手部\n\n12：OPI指缘油护理\n\n13：保湿手霜护理', 3, '美甲豪华套餐', 13, '1', 2, NULL);
@@ -232,63 +236,57 @@ INSERT INTO `project` VALUES (42, '美睫,随着女性朋友对嫁接睫毛的�
 INSERT INTO `project` VALUES (43, '韩式睫毛嫁接入门..所谓嫁接睫毛:就是针对原有睫毛,以一根一根的假睫毛,透过精准的手工与特殊胶水,将睫毛结合在原本的每根真睫毛上除了增加长度之外,由于顾客的睫毛长度,形状', 80.00, '1.皮肤消毒：美甲师及客人皮肤消毒。2.卸除本甲甲油胶(不包含卸除甲片，光疗甲，复杂造型等).3.工具消毒：消毒液，用干护理中美甲师使用的指皮剪，指皮推等工具消毒。4.指甲泡泡;(一次性泡手碗袋准备）5.修甲(修型):根据甲面形状以及喜好，为指甲修整适合的甲型。6.使用进口软甲皮剂：使用软甲皮剂，可软化指甲周围死皮，平衡皮肤PH值。', 4, '【元気】日式无痕下睫毛嫁接', 53, '1', 3, NULL);
 INSERT INTO `project` VALUES (44, ' ​​​随着女性朋友对嫁接睫毛的普遍熟知和认可,现在市场上已经流行了各种嫁接方法和样式。比如人工睫毛就分为束状睫毛、扇形睫毛,单根睫毛等等。那么这些睫毛', 108.00, 'MD山茶花山茶花貂毛睫毛', 4, '貂毛日式【山茶花】亮眸款', 54, '1', 6, NULL);
 INSERT INTO `project` VALUES (45, '南京嫁接睫毛套餐推荐,大众点评网为您提供与嫁接睫毛套餐相关的商户,并且有店铺实拍图片、地址、电话、价格、营业时间等信息,还有其他网友的真实体验评价,帮您找到南京最符合', 128.00, '超软水貂毛', 4, '超软貂毛浓密【鸢尾花】神采大眼款', 55, '1', 5, NULL);
-COMMIT;
 
 -- ----------------------------
 -- Table structure for projecttype
 -- ----------------------------
 DROP TABLE IF EXISTS `projecttype`;
-CREATE TABLE `projecttype` (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '项目类型id',
-  `name` varchar(50) DEFAULT NULL COMMENT '项目类型',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `projecttype`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '项目类型id',
+  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目类型',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of projecttype
 -- ----------------------------
-BEGIN;
 INSERT INTO `projecttype` VALUES (1, '美容');
 INSERT INTO `projecttype` VALUES (2, '美发');
 INSERT INTO `projecttype` VALUES (3, '美甲');
 INSERT INTO `projecttype` VALUES (4, '睫毛');
-COMMIT;
 
 -- ----------------------------
 -- Table structure for sysuser
 -- ----------------------------
 DROP TABLE IF EXISTS `sysuser`;
-CREATE TABLE `sysuser` (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '系统用户id',
-  `username` varchar(100) DEFAULT NULL COMMENT '用户名',
-  `password` varchar(100) DEFAULT NULL COMMENT '密码',
-  `imageid` bigint DEFAULT NULL COMMENT '关联图片id',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `sysuser`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '系统用户id',
+  `username` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户名',
+  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码',
+  `imageid` bigint(0) NULL DEFAULT NULL COMMENT '关联图片id',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sysuser
 -- ----------------------------
-BEGIN;
-COMMIT;
 
 -- ----------------------------
 -- Table structure for technician
 -- ----------------------------
 DROP TABLE IF EXISTS `technician`;
-CREATE TABLE `technician` (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '技师id',
-  `techexplain` varchar(255) DEFAULT NULL COMMENT '技师简介',
-  `techname` varchar(50) DEFAULT NULL COMMENT '技师姓名',
-  `busid` bigint DEFAULT NULL COMMENT '关联商家id',
-  `imageurl` varchar(255) DEFAULT NULL COMMENT '技师头像路径',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `technician`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '技师id',
+  `techexplain` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '技师简介',
+  `techname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '技师姓名',
+  `busid` bigint(0) NULL DEFAULT NULL COMMENT '关联商家id',
+  `imageurl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '技师头像路径',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of technician
 -- ----------------------------
-BEGIN;
 INSERT INTO `technician` VALUES (1, '貂蝉是历史上公认的四大美人之一,在三国时期也是绝无仅有的美女,而吕布更是三国中公认最厉害的武将,素有“马中赤兔', '小貂蝉', 2, 'j1.png');
 INSERT INTO `technician` VALUES (2, '中国东汉末年时期的美女，庐江皖县（今安徽潜山）人。桥公的次女，汉末名将周瑜的夫人。周瑜风度翩翩的才子形象，与堪称国色的小桥可称天', '小乔', 2, 'j2.png');
 INSERT INTO `technician` VALUES (3, '大乔（生卒年不详），庐江郡皖县（今安徽省潜山市）人，东汉末年江东孙策的夫人，本姓“桥”，小说《三国演义》误作“乔”，因为同时还有一个妹妹嫁给周瑜，为了进行区分，姐姐习惯称作“大乔（桥）”。', '大乔', 2, 'j3.png');
@@ -304,23 +302,21 @@ INSERT INTO `technician` VALUES (12, '孙坚之妻，吴景之姐，孙策、孙
 INSERT INTO `technician` VALUES (13, '辛毗之女，辛敞之姐，羊耽之妻，羊琇、羊姬之母。辛宪英的智、曹娥的孝、木兰的贞、曹令女的节、苏若兰的才和孟姜的烈并称，皆谓之出类拔萃。三国时代最具有政治洞察力的女人，辛毗、辛敞、羊琇皆一时人杰，遇到大事都会去找辛宪英商量。享年七十九岁。', '辛宪英', 5, 'j7.png');
 INSERT INTO `technician` VALUES (14, '诸葛亮的女儿。成都西南有朝真观，即乘烟观.相传，诸葛果在这里修行和成仙升天，', '诸葛果', 5, 'j6.png');
 INSERT INTO `technician` VALUES (15, '关羽之女，三国时期孙权欲以己子娶关羽之女以结为亲家，不料被关羽“虎女安能配犬子乎”所拒。关索的姐姐，荆州之变后不知所终。', '关凤', 5, 'j5.png');
-COMMIT;
 
 -- ----------------------------
 -- Table structure for tecpro
 -- ----------------------------
 DROP TABLE IF EXISTS `tecpro`;
-CREATE TABLE `tecpro` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `tecid` bigint DEFAULT NULL,
-  `proid` bigint DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `tecpro`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `tecid` bigint(0) NULL DEFAULT NULL,
+  `proid` bigint(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tecpro
 -- ----------------------------
-BEGIN;
 INSERT INTO `tecpro` VALUES (1, 1, 1);
 INSERT INTO `tecpro` VALUES (2, 1, 2);
 INSERT INTO `tecpro` VALUES (3, 1, 13);
@@ -371,36 +367,64 @@ INSERT INTO `tecpro` VALUES (47, 13, 6);
 INSERT INTO `tecpro` VALUES (48, 14, 14);
 INSERT INTO `tecpro` VALUES (49, 14, 3);
 INSERT INTO `tecpro` VALUES (50, 15, 15);
-COMMIT;
+INSERT INTO `tecpro` VALUES (51, 1, 16);
+INSERT INTO `tecpro` VALUES (52, 2, 17);
+INSERT INTO `tecpro` VALUES (53, 3, 18);
+INSERT INTO `tecpro` VALUES (54, 4, 19);
+INSERT INTO `tecpro` VALUES (55, 5, 20);
+INSERT INTO `tecpro` VALUES (56, 6, 21);
+INSERT INTO `tecpro` VALUES (57, 7, 22);
+INSERT INTO `tecpro` VALUES (58, 8, 23);
+INSERT INTO `tecpro` VALUES (59, 9, 24);
+INSERT INTO `tecpro` VALUES (60, 10, 25);
+INSERT INTO `tecpro` VALUES (61, 11, 26);
+INSERT INTO `tecpro` VALUES (62, 8, 27);
+INSERT INTO `tecpro` VALUES (63, 15, 28);
+INSERT INTO `tecpro` VALUES (64, 15, 29);
+INSERT INTO `tecpro` VALUES (65, 14, 30);
+INSERT INTO `tecpro` VALUES (66, 9, 31);
+INSERT INTO `tecpro` VALUES (67, 9, 32);
+INSERT INTO `tecpro` VALUES (68, 13, 33);
+INSERT INTO `tecpro` VALUES (69, 12, 34);
+INSERT INTO `tecpro` VALUES (70, 5, 35);
+INSERT INTO `tecpro` VALUES (71, 6, 36);
+INSERT INTO `tecpro` VALUES (72, 7, 37);
+INSERT INTO `tecpro` VALUES (73, 15, 38);
+INSERT INTO `tecpro` VALUES (74, 7, 39);
+INSERT INTO `tecpro` VALUES (75, 8, 40);
+INSERT INTO `tecpro` VALUES (76, 5, 41);
+INSERT INTO `tecpro` VALUES (77, 4, 42);
+INSERT INTO `tecpro` VALUES (78, 9, 43);
+INSERT INTO `tecpro` VALUES (79, 12, 44);
+INSERT INTO `tecpro` VALUES (80, 13, 45);
 
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '用户id',
-  `nickname` varchar(100) DEFAULT '' COMMENT '昵称',
-  `openid` varchar(255) DEFAULT NULL COMMENT '微信用户唯一标识',
-  `imageurl` varchar(255) DEFAULT NULL COMMENT '微信头像路径',
-  `sessionkey` varchar(255) DEFAULT NULL,
-  `token` varchar(100) DEFAULT NULL,
-  `username` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL,
-  `sysToken` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `user`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `nickname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '昵称',
+  `openid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '微信用户唯一标识',
+  `imageurl` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '微信头像路径',
+  `sessionkey` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sysToken` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-BEGIN;
 INSERT INTO `user` VALUES (7, '哈哈哈', 'oFCod5DOVTGHt5Qx0_bt2_ddYWEI', 'https://thirdwx.qlogo.cn/mmopen/vi_32/AXRG7vypnphvVn7BWanmfbbpSfJqlsOZKDOibdObL6kEVtxwwHicUkej7PtnkELwpYh5T2gSQUiclolxGlibvN63Rw/132', NULL, NULL, NULL, '123', NULL, NULL);
 INSERT INTO `user` VALUES (40, 'Larwance78', 'oFCod5COAhtK4uSf4FAXD1XWQf6c', 'https://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEL2EpnDcAN4rPgIulicAruEe2XwQmsVy1KRnjzx9nshwZ7xlYMEcuB86J4AgDGLGekMRnOV2XM9q0g/132', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES (41, 'TAM', 'oFCod5CJrSlb8VhGZCnJ-iBsPk7s', 'https://thirdwx.qlogo.cn/mmopen/vi_32/FnfnEco7BdgKxoHHcyvTCXgvKCaygONKKyMRbFsWcI8kqdUuiaworU7lMAiafqa84tu5DEkGg9bUmPj0xa0BwZIg/132', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES (42, 'Gy', 'oFCod5Mm6-4z9VDrKV4yx_rKs1SI', 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLYDdcoKcwVAjHXolSibsJhVBSm6QCSarNcfFPOCicJnL4cZqklNpcS2u00X8wCgFgZeWUpz36RDvrg/132', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES (43, '哈哈哈', NULL, 'https://thirdwx.qlogo.cn/mmopen/vi_32/AXRG7vypnphvVn7BWanmfbbpSfJqlsOZKDOibdObL6kEVtxwwHicUkej7PtnkELwpYh5T2gSQUiclolxGlibvN63Rw/132', NULL, NULL, '张月函', '18848428085', '123456', NULL);
 INSERT INTO `user` VALUES (44, '哈哈哈', 'oFCod5DOVTGHt5Qx0_bt2_ddYWEI', 'https://thirdwx.qlogo.cn/mmopen/vi_32/AXRG7vypnphvVn7BWanmfbbpSfJqlsOZKDOibdObL6kEVtxwwHicUkej7PtnkELwpYh5T2gSQUiclolxGlibvN63Rw/132', 'kE5hx2KRlvhsXCXXpI0SXA==', '562f8056ba69f867fd244bee8ffd4096', '张月函', '18848428080', '3651e5f096ce2396d1a570364dc4df0d', NULL);
-COMMIT;
+INSERT INTO `user` VALUES (45, '123', '123', '123', '123', '123', '123', '123', '123', '123');
 
 SET FOREIGN_KEY_CHECKS = 1;
