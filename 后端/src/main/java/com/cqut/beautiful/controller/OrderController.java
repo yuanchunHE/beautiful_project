@@ -7,13 +7,10 @@ import com.cqut.beautiful.service.OrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (Order)表控制层
@@ -44,6 +41,23 @@ public class OrderController {
             return new ResultData(ResultCode.FAILED);
     }
 
+    /**
+     * 通过用户电话查找订单
+     * @param phone
+     * @return
+     */
+    @ApiOperation(value = "queryOrderByPhone", notes = "通过电话查找预约订单")
+    @ApiImplicitParam(name = "phone", value = "电话")
+    @GetMapping("/app/order/{phone}")
+    public ResultData queryOrderByPhone(@PathVariable String phone){
+
+        //处理请求
+        List<Order> order = orderService.queryOrderByPhone(phone);
+
+        ResultData resultData = new ResultData(ResultCode.SUCCESS, order);
+
+        return resultData;
+    }
 
 }
 

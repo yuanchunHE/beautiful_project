@@ -80,5 +80,11 @@ public interface OrderDao {
      */
     int deleteById(Long id);
 
+    /**
+     * 通过用户电话查询订单
+     * @param phone
+     * @return
+     */
+    List<Order> queryOrderByPhone(String phone);
 }
 

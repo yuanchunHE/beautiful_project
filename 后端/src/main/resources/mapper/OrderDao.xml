@@ -18,6 +18,12 @@
     </resultMap>
 
 
+    <!--通过用户电话查找订单-->
+    <select id="queryOrderByPhone" resultMap="OrderMap">
+       SELECT * FROM `order` where usertell = #{phone}
+    </select>
+
+
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into `order`(openid, proname, makedate, username, usertell, information)

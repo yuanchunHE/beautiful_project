@@ -1,14 +1,12 @@
 package com.cqut.beautiful.service.impl;
 
-import com.cqut.beautiful.entity.Order;
 import com.cqut.beautiful.dao.OrderDao;
+import com.cqut.beautiful.entity.Order;
 import com.cqut.beautiful.service.OrderService;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (Order)表服务实现类
@@ -34,6 +32,16 @@ public class OrderServiceImpl implements OrderService {
             return true;
         else
             return false;
+    }
+
+    /**
+     * 通过用户电话查找订单
+     * @param phone
+     * @return
+     */
+    @Override
+    public List<Order> queryOrderByPhone(String phone) {
+        return orderDao.queryOrderByPhone(phone);
     }
 
 }

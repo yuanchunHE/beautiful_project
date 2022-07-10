@@ -1,10 +1,8 @@
 package com.cqut.beautiful.service;
 
 import com.cqut.beautiful.entity.Order;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 
-import javax.swing.text.StyledEditorKit;
+import java.util.List;
 
 /**
  * (Order)表服务接口
@@ -22,4 +20,10 @@ public interface OrderService {
      */
     Boolean insert(Order order);
 
+    /**
+     * 通过用户电话查找订单
+     * @param phone
+     * @return
+     */
+    List<Order> queryOrderByPhone(String phone);
 }
