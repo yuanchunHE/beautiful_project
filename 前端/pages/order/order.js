@@ -9,7 +9,10 @@ Page({
     "proname": "",
     "image": "",
     "date": "2022-07-09",
-    "time": "12:11"
+    "time": "12:11",
+    "proid": "",
+    "tecid": "",
+    "busid": ""
   },
 
   /**
@@ -21,7 +24,8 @@ Page({
     var image = options.image;
     var proname = options.proname;
     var pid = options.pid;
-
+    var tecid = options.tecid;
+    var busid = options.busid;
     wx.request({
       url: 'http://localhost:8080/business/app/busname/' + pid,
       method: "GET",
@@ -31,7 +35,10 @@ Page({
         that.setData({
           "busname": res.data.data,
           "image": image,
-          "proname": proname
+          "proname": proname,
+          "proid": pid,
+          "tecid": tecid,
+          "busid": busid,
         })
 
       }
@@ -64,6 +71,9 @@ Page({
         "username": options.detail.value.username,
         "usertell": options.detail.value.usertell,
         "information": options.detail.value.information,
+        "busid": that.busid,
+        "tecid": that.tecid,
+        "proid": that.proid,
       },
       success:function(res){
         wx.switchTab({

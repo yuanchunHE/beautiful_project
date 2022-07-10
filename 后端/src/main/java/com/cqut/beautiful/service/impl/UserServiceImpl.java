@@ -28,9 +28,11 @@ public class UserServiceImpl implements UserService {
      * @return 实例对象
      */
     @Override
-    public User queryById(Long id) {
-        return this.userDao.queryById(id);
+    public User queryUserById(Long id) {
+        return this.userDao.queryUserById(id);
     }
+
+
 
 
     /**
@@ -40,9 +42,12 @@ public class UserServiceImpl implements UserService {
      * @return 实例对象
      */
     @Override
-    public User insert(User user) {
-        this.userDao.insert(user);
-        return user;
+    public Boolean insert(User user) {
+        int i = userDao.insert(user);
+        if (i == 1)
+            return true;
+        else
+            return false;
     }
 
     /**
@@ -54,7 +59,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User update(User user) {
         this.userDao.update(user);
-        return this.queryById(user.getId());
+        return this.queryUserById(user.getId());
     }
 
     /**

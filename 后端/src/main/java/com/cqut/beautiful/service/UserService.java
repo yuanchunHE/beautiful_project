@@ -18,7 +18,7 @@ public interface UserService {
      * @param id 主键
      * @return 实例对象
      */
-    User queryById(Long id);
+    User queryUserById(Long id);
 
 
     /**
@@ -27,7 +27,7 @@ public interface UserService {
      * @param user 实例对象
      * @return 实例对象
      */
-    User insert(User user);
+    Boolean insert(User user);
 
     /**
      * 修改数据

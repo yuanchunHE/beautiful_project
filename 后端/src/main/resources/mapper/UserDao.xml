@@ -16,12 +16,23 @@
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryById" resultMap="UserMap">
+    <select id="queryUserById" resultMap="UserMap">
         select
-          id, nickname, openid, imageurl, sessionkey, token, username, phone, password, sysToken
-        from user
+          id, nickname, openid, imageurl, sessionkey, token, username, phone, `password`, sysToken
+        from `user`
         where id = #{id}
     </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into user(nickname, openid, imageurl, sessionkey, token, username, phone, password, sysToken)
+        values (#{nickname}, #{openid}, #{imageurl}, #{sessionkey}, #{token}, #{username}, #{phone}, #{password}, #{systoken})
+    </insert>
+
+
+
+
+
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="UserMap">
@@ -101,11 +112,7 @@
         </where>
     </select>
 
-    <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into user(nickname, openid, imageurl, sessionkey, token, username, phone, password, sysToken)
-        values (#{nickname}, #{openid}, #{imageurl}, #{sessionkey}, #{token}, #{username}, #{phone}, #{password}, #{systoken})
-    </insert>
+
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
         insert into user(nickname, openid, imageurl, sessionkey, token, username, phone, password, sysToken)

@@ -23,7 +23,7 @@ Page({
       success:function(res){
         //console.log(res);
         that.setData({
-          "proInfo":res.data.data
+          "proInfo":res.data.data,
         })
       }
     })
@@ -31,12 +31,16 @@ Page({
   },
 
   toOrder:function(options){
-    console.log(options);
+    //console.log(options);
     var image = options.currentTarget.dataset.img;
     var proname = options.currentTarget.dataset.proname;
     var id = options.currentTarget.dataset.id;
+    var busid = options.currentTarget.dataset.busid;
+    var tecid = options.currentTarget.dataset.tecid;
+    var proid = options.currentTarget.dataset.proid;
+
     wx.navigateTo({
-      url: '/pages/order/order?image='+image+'&proname='+proname+'&pid='+id,
+      url: '/pages/order/order?image='+image+'&proname='+proname+'&pid='+id+'&busid='+busid+'&tecid='+tecid+'&proid='+proid,
     })
   },
 

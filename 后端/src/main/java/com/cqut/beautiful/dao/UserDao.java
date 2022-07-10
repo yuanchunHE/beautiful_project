@@ -20,7 +20,18 @@ public interface UserDao {
      * @param id 主键
      * @return 实例对象
      */
-    User queryById(Long id);
+    User queryUserById(Long id);
+
+    /**
+     * 新增数据
+     *
+     * @param user 实例对象
+     * @return 影响行数
+     */
+    int insert(User user);
+
+
+
 
     /**
      * 查询指定行数据
@@ -39,13 +50,7 @@ public interface UserDao {
      */
     long count(User user);
 
-    /**
-     * 新增数据
-     *
-     * @param user 实例对象
-     * @return 影响行数
-     */
-    int insert(User user);
+
 
     /**
      * 批量新增数据（MyBatis原生foreach方法）

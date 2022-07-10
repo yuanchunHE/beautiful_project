@@ -7,7 +7,7 @@
 
 <view class="hr"></view>
 <view class='item'>
-  <view class="title">用户资料</view>
+  <view class="title" bindtap="viewUserDetail" data-username="{{username}}">用户资料</view>
   <view class="detail2">
     <text>></text>
   </view>
