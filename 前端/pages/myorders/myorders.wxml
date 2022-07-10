@@ -7,7 +7,7 @@
   <text class="userinfo-nickname">{{username}}</text>
 </view>
 
-<view wx:for="{{orders}}">
+<view wx:for="{{orders}}" wx:key="orders">
   <view class="order">
     <text class="orderinfo">订单：</text>
     <text class="orderinfo">项目：{{item.proname}}</text>

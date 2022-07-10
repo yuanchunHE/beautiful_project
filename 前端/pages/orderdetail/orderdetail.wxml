@@ -1,17 +1,17 @@
 <view class="all">
   <view class="orderID">
     <view>
-      <text class="orderid">订单1：
+      <text class="orderid">订单：
       </text>
     </view>
   </view>
   <view class="content">
     <view class='item'>
-      <text class="number" decode="{{true}}">订单号：123</text>
+      <text class="number" decode="{{true}}"> 订单号：{{item.id}}</text>
     </view>
 
     <view class='item'>
-      <text class="ordertime">订单生成时间：12345678900</text>
+      <text class="ordertime">订单生成时间：{{item.makedate}}</text>
     </view>
 
     <view class='item'>
@@ -19,26 +19,31 @@
     </view>
 
     <view class='item'>
-      <text class="projecttype">预约项目：纯色甲油胶+磨砂</text>
+      <text class="projecttype">预约项目：{{item.proname}}</text>
     </view>
 
     <view class='item'>
-      <text class="line">XXX：xxx</text>
+      <text class="teachname">技师姓名：{{item.techname}}</text>
     </view>
 
     <view class='item'>
-      <text class="line">XXX：xxx</text>
+      <text class="line">结束时间：{{item.placedate}}</text>
     </view>
 
     <view class='item'>
-      <text class="line">XXX：xxx</text>
+      <text class="line">信息：{{item.information}}</text>
     </view>
 
     <view class='item'>
-      <text class="line">XXX：xxx</text>
+      <text class="line"> </text>
     </view>
-    <image class="QRcode" src="/images/QR.png"> </image>
+
+    <view class='item'>
+      <text class="line">------------请向店员出示二维码-------------</text>
+    </view>
+    
   </view>
+  <image class="QRcode" src="/images/QR.png"> </image>
   
   <image class="img" src="/images/p1.png" background-size="cover"></image>
   <view class="bottom"></view>
