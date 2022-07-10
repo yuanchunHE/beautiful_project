@@ -8,12 +8,6 @@
         <result property="proid" column="proid" jdbcType="INTEGER"/>
     </resultMap>
 
-    <!--通过项目id查找技师名-->
-    <select id="queryProjectByPid"  resultType="com.cqut.beautiful.entity.Technician">
-        select techname ,techexplain,busid,imageurl from technician,tecpro
-        where  tecpro.proid = #{pid} and tecpro.tecid = technician.id
-    </select>
-
     <!--通过技师id查找技师信息-->
     <select id="queryByTechId" resultType="com.cqut.beautiful.dto.Projects">
         select tecpro.tecid,proid,project.id,proname,imageurl,proprice,proexplain
