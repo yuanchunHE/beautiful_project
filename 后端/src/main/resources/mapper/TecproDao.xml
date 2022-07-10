@@ -8,6 +8,13 @@
         <result property="proid" column="proid" jdbcType="INTEGER"/>
     </resultMap>
 
+    <!--通过技师id查找技师信息-->
+    <select id="queryByTechId" resultType="com.cqut.beautiful.dto.Projects">
+        select tecpro.tecid,proid,project.id,proname,imageurl,proprice,proexplain
+        from tecpro, project,image
+        where proid = project.id and tecpro.tecid = #{id} and project.imageid=image.id;
+    </select>
+
     <!--查询单个-->
     <select id="queryById" resultMap="TecproMap">
         select

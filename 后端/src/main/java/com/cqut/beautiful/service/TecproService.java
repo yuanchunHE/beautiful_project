@@ -1,8 +1,9 @@
 package com.cqut.beautiful.service;
 
+import com.cqut.beautiful.dto.Projects;
 import com.cqut.beautiful.entity.Tecpro;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+
+import java.util.List;
 
 /**
  * (Tecpro)表服务接口
@@ -45,4 +46,10 @@ public interface TecproService {
      */
     boolean deleteById(Long id);
 
+    /**
+     * 通过技师id查找技师信息
+     * @param id
+     * @return
+     */
+    List<Projects> queryByTechId(Integer id);
 }

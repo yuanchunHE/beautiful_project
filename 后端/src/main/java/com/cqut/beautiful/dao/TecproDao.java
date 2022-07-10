@@ -1,5 +1,6 @@
 package com.cqut.beautiful.dao;
 
+import com.cqut.beautiful.dto.Projects;
 import com.cqut.beautiful.entity.Tecpro;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.data.domain.Pageable;
@@ -80,5 +81,11 @@ public interface TecproDao {
      */
     int deleteById(Long id);
 
+    /**
+     * 通过技师id查找技师信息
+     * @param id
+     * @return
+     */
+    List<Projects> queryByTechId(Integer id);
 }
 

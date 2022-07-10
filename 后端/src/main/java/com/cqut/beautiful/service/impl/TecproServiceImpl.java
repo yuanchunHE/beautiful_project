@@ -1,14 +1,13 @@
 package com.cqut.beautiful.service.impl;
 
-import com.cqut.beautiful.entity.Tecpro;
 import com.cqut.beautiful.dao.TecproDao;
+import com.cqut.beautiful.dto.Projects;
+import com.cqut.beautiful.entity.Tecpro;
 import com.cqut.beautiful.service.TecproService;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (Tecpro)表服务实现类
@@ -66,5 +65,17 @@ public class TecproServiceImpl implements TecproService {
     @Override
     public boolean deleteById(Long id) {
         return this.tecproDao.deleteById(id) > 0;
+    }
+
+    /**
+     * 通过技师id查找技师信息
+     * @param id
+     * @return
+     */
+    @Override
+    public List<Projects> queryByTechId(Integer id) {
+
+        return tecproDao.queryByTechId(id);
+
     }
 }
