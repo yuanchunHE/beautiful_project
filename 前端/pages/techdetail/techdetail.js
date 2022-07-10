@@ -55,7 +55,7 @@ Page({
     var tecid = options.currentTarget.dataset.tecid;
 
     wx.navigateTo({
-      url: '/pages/order/order?image='+image+'&proname='+proname+'&pid='+proid+'&tecid='+tecid+'&proid='+proid,
+      url: '/pages/order/order?image='+image+'&proname='+proname+'&proid='+proid+'&tecid='+tecid+'&proid='+proid,
     })
   },
 })

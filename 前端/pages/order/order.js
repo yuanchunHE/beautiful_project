@@ -62,7 +62,7 @@ Page({
       url: 'http://localhost:8080/technician/techid/'+tecid,
       method:"GET",
       success:function(res){
-        console.log(res);
+        //console.log(res);
         that.setData({
           "techname":res.data.data[0].techname,
           "flag":1,
