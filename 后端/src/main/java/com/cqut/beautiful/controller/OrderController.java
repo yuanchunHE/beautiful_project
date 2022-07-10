@@ -4,6 +4,9 @@ import com.cqut.beautiful.entity.Order;
 import com.cqut.beautiful.result.ResultCode;
 import com.cqut.beautiful.result.ResultData;
 import com.cqut.beautiful.service.OrderService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +23,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("order")
+@Api(tags = "订单")
 public class OrderController {
     /**
      * 服务对象
@@ -27,6 +31,9 @@ public class OrderController {
     @Resource
     private OrderService orderService;
 
+
+    @ApiOperation(value = "insert", notes = "添加预约订单")
+    @ApiImplicitParam(name = "order",value = "订单对象")
     @PostMapping("/app/order")
     public ResultData insert(@RequestBody Order order){
 
@@ -37,58 +44,6 @@ public class OrderController {
             return new ResultData(ResultCode.FAILED);
     }
 
-
-
-
-
-
-
-
-    /**
-     * 分页查询
-     *
-     * @param order       筛选条件
-     * @param pageRequest 分页对象
-     * @return 查询结果
-     */
-    @GetMapping
-    public ResponseEntity<Page<Order>> queryByPage(Order order, PageRequest pageRequest) {
-        return ResponseEntity.ok(this.orderService.queryByPage(order, pageRequest));
-    }
-
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("{id}")
-    public ResponseEntity<Order> queryById(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(this.orderService.queryById(id));
-    }
-
-
-    /**
-     * 编辑数据
-     *
-     * @param order 实体
-     * @return 编辑结果
-     */
-    @PutMapping
-    public ResponseEntity<Order> edit(Order order) {
-        return ResponseEntity.ok(this.orderService.update(order));
-    }
-
-    /**
-     * 删除数据
-     *
-     * @param id 主键
-     * @return 删除是否成功
-     */
-    @DeleteMapping
-    public ResponseEntity<Boolean> deleteById(Long id) {
-        return ResponseEntity.ok(this.orderService.deleteById(id));
-    }
 
 }
 

@@ -32,18 +32,6 @@ public class TecproServiceImpl implements TecproService {
         return this.tecproDao.queryById(id);
     }
 
-    /**
-     * 分页查询
-     *
-     * @param tecpro      筛选条件
-     * @param pageRequest 分页对象
-     * @return 查询结果
-     */
-    @Override
-    public Page<Tecpro> queryByPage(Tecpro tecpro, PageRequest pageRequest) {
-        long total = this.tecproDao.count(tecpro);
-        return new PageImpl<>(this.tecproDao.queryAllByLimit(tecpro, pageRequest), pageRequest, total);
-    }
 
     /**
      * 新增数据

@@ -4,6 +4,9 @@ import com.cqut.beautiful.entity.Image;
 import com.cqut.beautiful.result.ResultCode;
 import com.cqut.beautiful.result.ResultData;
 import com.cqut.beautiful.service.ImageService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("image")
+@Api(tags = "图片")
 public class ImageController {
 
     /**
@@ -28,11 +32,14 @@ public class ImageController {
     @Resource
     private ImageService imageService;
 
+
     /**
      * 通过图片类型查询轮播图
      * @param imageType
      * @return
      */
+    @ApiOperation(value = "queryByType", notes = "通过图片类型查找图片信息")
+    @ApiImplicitParam(name = "imagetype",value = "图片类型")
     @GetMapping("/{imageType}")
     public ResultData queryByType(@PathVariable String imageType){
 
@@ -44,72 +51,6 @@ public class ImageController {
         return resultData;
     }
 
-
-
-
-
-///////////////自动生成
-//    /**
-//     * 服务对象
-//     */
-//    @Resource
-//    private ImageService imageService;
-//
-//    /**
-//     * 分页查询
-//     *
-//     * @param image       筛选条件
-//     * @param pageRequest 分页对象
-//     * @return 查询结果
-//     */
-//    @GetMapping
-//    public ResponseEntity<Page<Image>> queryByPage(Image image, PageRequest pageRequest) {
-//        return ResponseEntity.ok(this.imageService.queryByPage(image, pageRequest));
-//    }
-//
-//    /**
-//     * 通过主键查询单条数据
-//     *
-//     * @param id 主键
-//     * @return 单条数据
-//     */
-//    @GetMapping("{id}")
-//    public ResponseEntity<Image> queryById(@PathVariable("id") Long id) {
-//        return ResponseEntity.ok(this.imageService.queryById(id));
-//    }
-//
-//    /**
-//     * 新增数据
-//     *
-//     * @param image 实体
-//     * @return 新增结果
-//     */
-//    @PostMapping
-//    public ResponseEntity<Image> add(Image image) {
-//        return ResponseEntity.ok(this.imageService.insert(image));
-//    }
-//
-//    /**
-//     * 编辑数据
-//     *
-//     * @param image 实体
-//     * @return 编辑结果
-//     */
-//    @PutMapping
-//    public ResponseEntity<Image> edit(Image image) {
-//        return ResponseEntity.ok(this.imageService.update(image));
-//    }
-//
-//    /**
-//     * 删除数据
-//     *
-//     * @param id 主键
-//     * @return 删除是否成功
-//     */
-//    @DeleteMapping
-//    public ResponseEntity<Boolean> deleteById(Long id) {
-//        return ResponseEntity.ok(this.imageService.deleteById(id));
-//    }
 
 }
 

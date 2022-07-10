@@ -20,14 +20,6 @@ public interface UserService {
      */
     User queryById(Long id);
 
-    /**
-     * 分页查询
-     *
-     * @param user        筛选条件
-     * @param pageRequest 分页对象
-     * @return 查询结果
-     */
-    Page<User> queryByPage(User user, PageRequest pageRequest);
 
     /**
      * 新增数据

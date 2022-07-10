@@ -20,14 +20,6 @@ public interface TecproService {
      */
     Tecpro queryById(Long id);
 
-    /**
-     * 分页查询
-     *
-     * @param tecpro      筛选条件
-     * @param pageRequest 分页对象
-     * @return 查询结果
-     */
-    Page<Tecpro> queryByPage(Tecpro tecpro, PageRequest pageRequest);
 
     /**
      * 新增数据
