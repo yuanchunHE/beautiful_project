@@ -61,7 +61,7 @@ Page({
   },
   formSubmit: function (options) {
     var that = this;
-    console.log(that.data);
+    //console.log(that.data);
     wx.request({
       url: 'http://localhost:8080/order/app/order',
       method: "POST",
