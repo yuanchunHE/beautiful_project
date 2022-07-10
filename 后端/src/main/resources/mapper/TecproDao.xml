@@ -8,11 +8,17 @@
         <result property="proid" column="proid" jdbcType="INTEGER"/>
     </resultMap>
 
+    <!--通过项目id查找技师名-->
+    <select id="queryProjectByPid"  resultType="java.lang.String">
+        select techname from technician,tecpro
+        where  tecpro.proid = #{pid} and tecpro.tecid = technician.id
+    </select>
+
     <!--通过技师id查找技师信息-->
     <select id="queryByTechId" resultType="com.cqut.beautiful.dto.Projects">
-        select tecpro.tecid,proid,project.id,proname,imageurl,proprice,proexplain
-        from tecpro, project,image
-        where proid = project.id and tecpro.tecid = #{id} and project.imageid=image.id;
+        select tecpro.tecid,proid,project.id,proname,imageurl,proprice,proexplain,busid
+        from tecpro, project,image,business
+        where proid = project.id and tecpro.tecid = #{id} and project.imageid=image.id and busid = business.id;
     </select>
 
     <!--查询单个-->

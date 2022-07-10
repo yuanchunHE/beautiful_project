@@ -2,6 +2,7 @@ package com.cqut.beautiful.service.impl;
 
 import com.cqut.beautiful.dao.TecproDao;
 import com.cqut.beautiful.dto.Projects;
+import com.cqut.beautiful.entity.Technician;
 import com.cqut.beautiful.entity.Tecpro;
 import com.cqut.beautiful.service.TecproService;
 import org.springframework.stereotype.Service;
@@ -77,5 +78,15 @@ public class TecproServiceImpl implements TecproService {
 
         return tecproDao.queryByTechId(id);
 
+    }
+
+    /**
+     * 通过项目id查找技师
+     * @param pid
+     * @return
+     */
+    @Override
+    public List<String> queryProjectByPid(Integer pid) {
+        return tecproDao.queryProjectByPid(pid);
     }
 }

@@ -37,4 +37,10 @@ public class TechnicianServiceImpl implements TechnicianService {
         return null;
     }
 
+    @Override
+    public List<Technician> queryTechniciansById(Long id) {
+        return technicianDao.queryById(id);
+    }
+
+
 }

@@ -42,6 +42,16 @@ public class TechnicianController {
         return new ResultData(ResultCode.SUCCESS,technicians);
     }
 
+    @ApiOperation(value = "queryTechniciansById", notes = "通过技师id查询技师信息")
+    @ApiImplicitParam(name = "id", value = "id")
+    @GetMapping("/techid/{id}")
+    public ResultData queryTechniciansById(@PathVariable Long id){
+
+        List<Technician> technicians = technicianService.queryTechniciansById(id);
+
+        return new ResultData(ResultCode.SUCCESS,technicians);
+    }
+
 
 
 }

@@ -20,7 +20,7 @@ public interface TechnicianDao {
      * @param id 主键
      * @return 实例对象
      */
-    Technician queryById(Long id);
+    List<Technician> queryById(Long id);
 
     /**
      * 查询指定行数据

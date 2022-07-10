@@ -20,4 +20,7 @@ public interface TechnicianService {
      * @return
      */
     List<Technician> queryTechnicians(String name);
+
+
+    List<Technician> queryTechniciansById(Long id);
 }

@@ -25,5 +25,13 @@
         where techname = #{name}
     </select>
 
+    <!--根据id查询-->
+    <select id="queryById" resultMap="TechnicianMap">
+        select
+          id, techexplain, techname, busid, imageurl
+        from technician
+        where id = #{id}
+    </select>
+
 </mapper>
 
