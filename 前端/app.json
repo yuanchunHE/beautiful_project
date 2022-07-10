@@ -1,5 +1,5 @@
 {
-  "entryPagePath": "pages/index/index",
+  "entryPagePath": "pages/myorders/myorders",
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
@@ -10,7 +10,8 @@
     "pages/techdetail/techdetail",
     "pages/userdetail/userdetail",
     "pages/userwallet/userwallet",
-    "pages/orderdetail/orderdetail"
+    "pages/orderdetail/orderdetail",
+    "pages/myorders/myorders"
   ],
   "window": {
     "navigationBarBackgroundColor": "#8A2BE2",

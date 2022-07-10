@@ -1,0 +1,21 @@
+<!--pages/myorders/myorders.wxml-->
+
+
+<view class="userinfo">
+  <text>我的订单</text>
+  <image bindtap="viewUserDetail" class="userinfo-avatar" src="/images/headpor.jpg" background-size="cover" data-username="{{username}}"></image>
+  <text class="userinfo-nickname">{{username}}</text>
+</view>
+
+<view wx:for="{{orders}}">
+  <view class="order">
+    <text class="orderinfo">订单：</text>
+    <text class="orderinfo">项目：{{item.proname}}</text>
+    <text class="orderinfo">预约时间：{{item.makedate}}</text>
+    <text class="orderinfo">预约技师：{{item.techname}}</text> 
+    <text class="orderinfo">预留电话：{{item.usertell}}</text>
+  </view>
+  <view class="line"></view>
+</view>
+
+
