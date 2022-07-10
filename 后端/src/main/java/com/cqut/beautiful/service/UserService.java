@@ -45,4 +45,8 @@ public interface UserService {
      */
     boolean deleteById(Long id);
 
+    boolean openidExists(String openid);
+
+
+    User queryUserByOpenid(String openid);
 }

@@ -38,9 +38,9 @@ public class UserController {
     @ApiImplicitParam(name = "name", value = "用户名")
     @GetMapping("/user/{id}")
     public ResultData queryUserById(@PathVariable Long id){
-        User projects = userService.queryUserById(id);
+        User user = userService.queryUserById(id);
 
-        ResultData resultData = new ResultData(ResultCode.SUCCESS, projects);
+        ResultData resultData = new ResultData(ResultCode.SUCCESS, user);
 
         return resultData;
     }
@@ -57,5 +57,23 @@ public class UserController {
             return new ResultData(ResultCode.FAILED);
     }
 
+    @ApiOperation(value = "queryUserByOpenid", notes = "通过openid查询对应用户信息")
+    @ApiImplicitParam(name = "openid", value = "openid")
+    @GetMapping("/user2/{openid}")
+    public ResultData queryUserByOpenid(@PathVariable String openid){
+        User user = userService.queryUserByOpenid(openid);
+
+        ResultData resultData = new ResultData(ResultCode.SUCCESS, user);
+
+        return resultData;
+    }
+
+
+    public ResultData openidExists(String openid){
+        if(userService.openidExists(openid))
+            return new ResultData(ResultCode.SUCCESS);
+        else
+            return new ResultData(ResultCode.FAILED);
+    }
 }
 

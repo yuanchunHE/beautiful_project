@@ -15,7 +15,15 @@
         <result property="systoken" column="sysToken" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <!--查询单个-->
+    <!--根据openid查询单个用户-->
+    <select id="queryUserByOpenid" resultMap="UserMap">
+        select
+          id, nickname, openid, imageurl, sessionkey, token, username, phone, `password`, sysToken
+        from `user`
+        where openid = #{openid}
+    </select>
+
+    <!--根据id查询单个用户-->
     <select id="queryUserById" resultMap="UserMap">
         select
           id, nickname, openid, imageurl, sessionkey, token, username, phone, `password`, sysToken
@@ -29,7 +37,13 @@
         values (#{nickname}, #{openid}, #{imageurl}, #{sessionkey}, #{token}, #{username}, #{phone}, #{password}, #{systoken})
     </insert>
 
-
+    <!--查询所有openid-->
+    <select id="queryOpenidByOpenid" resultMap="UserMap">
+        select
+          openid
+        from `user`
+        where openid = #{openid}
+    </select>
 
 
 

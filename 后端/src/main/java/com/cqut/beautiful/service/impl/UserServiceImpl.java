@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
 import javax.annotation.Resource;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * (User)表服务实现类
@@ -31,9 +33,6 @@ public class UserServiceImpl implements UserService {
     public User queryUserById(Long id) {
         return this.userDao.queryUserById(id);
     }
-
-
-
 
     /**
      * 新增数据
@@ -71,5 +70,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean deleteById(Long id) {
         return this.userDao.deleteById(id) > 0;
+    }
+
+    @Override
+    public boolean openidExists(String openid) {
+        List<String> openidList = userDao.queryOpenidByOpenid(openid);
+        if (openidList.isEmpty())
+            return false;
+        else
+            return true;
+
+    }
+
+    @Override
+    public User queryUserByOpenid(String openid) {
+
+        return this.userDao.queryUserByOpenid(openid);
     }
 }

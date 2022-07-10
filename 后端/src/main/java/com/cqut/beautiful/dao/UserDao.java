@@ -31,6 +31,7 @@ public interface UserDao {
     int insert(User user);
 
 
+    List<String> queryOpenidByOpenid(String openid);
 
 
     /**
@@ -85,5 +86,7 @@ public interface UserDao {
      */
     int deleteById(Long id);
 
+
+    User queryUserByOpenid(String openid);
 }
 
