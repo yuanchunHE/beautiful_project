@@ -7,7 +7,8 @@
     "pages/my/my",
     "pages/teach/teach",
     "pages/detail/detail",
-    "pages/techdetail/techdetail"
+    "pages/techdetail/techdetail",
+    "pages/userdetail/userdetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#8A2BE2",

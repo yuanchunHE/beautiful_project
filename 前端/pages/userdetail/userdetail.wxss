@@ -1,4 +1,4 @@
-/* pages/my/my.wxss */
+/* pages/userdetail/userdetail.wxss */
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -8,18 +8,10 @@
   height: 300rpx;
 }
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 256rpx;
+  height: 256rpx;
   margin: 20rpx;
   border-radius: 50%;
-}
-.userinfo-nickname {
-  color: black;
-}
-.hr {
-  width: 100%;
-  height: 15px;
-  background-color: #f4f5f6;
 }
 .item {
   display: flex;
@@ -28,12 +20,4 @@
 .line {
   border: 1px solid #ccc;
   opacity: 0.2;
-}
-.detail2 {
-  font-size: 15px;
-  position: absolute;
-  right: 10px;
-  height: 50px;
-  line-height: 20px;
-  color: #888;
 }
