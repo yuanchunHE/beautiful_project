@@ -16,10 +16,9 @@ Page({
         console.log(user.id);
         if (!user.phone){
           console.log("dont have phone")
-          console.log("到数据库内先给用户的手机号赋值！！");
-          console.assert(1);
-          //console.log
-          //todo
+          wx.navigateTo({
+            url: '/pages/userdetail/userdetail',
+          })
         }
         else{
           console.log("have phone")
