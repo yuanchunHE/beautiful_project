@@ -1,4 +1,5 @@
 // pages/myreservation/myorders.js
+const backAddress = getApp().globalData.url;
 Page({
 
   /**
@@ -14,7 +15,7 @@ Page({
     var that = this;
       
     wx.request({
-      url: 'http://localhost:8080/order/app/order/'+this.data.phoneNum,
+      url: backAddress + '/order/app/order/'+this.data.phoneNum,
       method:"GET",
       success:function(res){
         that.setData({
@@ -26,14 +27,13 @@ Page({
   },
 
   toOrderDetail:function(options){
-    //console.log(options.currentTarget.dataset);
+    console.log(options.currentTarget);
     var info1 = options.currentTarget.dataset.placedate;
     var info2 = options.currentTarget.dataset.makedate;
     var info3 = options.currentTarget.dataset.proname;
     var info4 = options.currentTarget.dataset.techname;
     var info5 = options.currentTarget.dataset.usertell;
     var info6 = options.currentTarget.dataset.info;
-
 
     wx.navigateTo({
       url: '/pages/orderdetail/orderdetail?placeDate='+info1+'&makeDate='+info2+'&proName='+info3+'&techName='+info4+'&userTell='+info5+'&messInfo=info'+info6
