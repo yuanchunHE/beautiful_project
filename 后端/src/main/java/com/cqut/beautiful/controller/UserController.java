@@ -76,22 +76,22 @@ public class UserController {
             return new ResultData(ResultCode.FAILED, projects);
         }
 
-        if (nickname!=null){
+        if (!nickname.equals("null")){
             projects.setNickname(nickname);
         }
-        if (imageurl!=null){
+        if (!imageurl.equals("null")){
             projects.setImageurl(imageurl);
         }
-        if(username!=null) {
+        if(!username.equals("null")) {
             projects.setUsername(username);
         }
-        if (phone!=null){
+        if (!phone.equals("null")){
             projects.setPhone(phone);
         }
-        if(password!=null) {
+        if(!password.equals("null")) {
             projects.setPassword(password);
         }
-        if (sysToken!=null){
+        if (!sysToken.equals("null")){
             projects.setSystoken(sysToken);
         }
 
