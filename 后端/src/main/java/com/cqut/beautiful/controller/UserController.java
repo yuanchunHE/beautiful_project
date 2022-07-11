@@ -129,10 +129,17 @@ public class UserController {
         String openid = jsonObject.getString("openid");
         String sessionKey = jsonObject.getString("session_key");
         Boolean result = true;
-        User user = userService.queryUserByOpenid(openid);
-        String tokenid = token.addToToken();
-        System.out.println("Token " + tokenid + " generated");
+        User user;
+        String tokenid;
+        tokenid = String.valueOf(token.generate());
+        user = userService.queryUserByToken(tokenid);
+        while (user!=null){
+            tokenid = String.valueOf(token.generate());
+            user = userService.queryUserByToken(tokenid);
+        }
 
+        user = userService.queryUserByOpenid(openid);
+        System.out.println("Token " + tokenid + " generated");
 
         if(user == null){
             System.out.println("New User");

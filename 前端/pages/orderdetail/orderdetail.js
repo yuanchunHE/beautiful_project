@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    "order":"",
     "makeDate" : "0",
     "messInfo": "0",
     "placeDate" : "0",
@@ -17,6 +18,7 @@ Page({
     var that = this;
     //console.log(options);
     that.setData({
+      
       "makeDate":options.makeDate,
       "messInfo":options.messInfo,
       "placeDate":options.placeDate,
