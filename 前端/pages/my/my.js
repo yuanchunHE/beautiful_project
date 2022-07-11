@@ -10,6 +10,7 @@ Page({
   onLoad(options) {
     var that = this;
     CheckByToken(function(resdata){
+      GetImgAddress(resdata);
       that.setData({
         user:resdata
       })
