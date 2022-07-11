@@ -1,13 +1,15 @@
 <!--pages/myorders/myorders.wxml-->
 
+
 <view class="userinfo">
   <text>我的订单</text>
-  <image class="userinfo-avatar" src="{{userHeader}}" background-size="cover" data-username="{{username}}"></image>
+  <image bindtap="viewUserDetail" class="userinfo-avatar" src="/images/headpor.jpg" background-size="cover" data-username="{{username}}"></image>
   <text class="userinfo-nickname">{{username}}</text>
 </view>
 
 <view wx:for="{{orders}}" wx:key="orders">
-  <view class="order" bindtap="toOrderDetail">
+  <view class="order" bindtap="toOrderDetail" data-placeDate="{{item.placedate}}" data-makeDate="{{item.makedate}}" data-proName="{{item.proname}}" data-techName="{{item.techname}}" data-userTell="{{item.usertell}}" data-info="{{item.information}}">
+
     <text class="orderinfo">订单：</text>
     <text class="orderinfo">项目：{{item.proname}}</text>
     <text class="orderinfo">预约时间：{{item.makedate}}</text>
@@ -16,3 +18,5 @@
   </view>
   <view class="line"></view>
 </view>
+
+
