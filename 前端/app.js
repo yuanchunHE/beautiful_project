@@ -1,6 +1,6 @@
 // app.js
 App({
   globalData: {
-    url:'http://localhost:11451'
+    url:'http://localhost:8080'
   }
 })

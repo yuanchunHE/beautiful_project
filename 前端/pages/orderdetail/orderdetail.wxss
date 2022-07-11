@@ -23,8 +23,8 @@
 }
 
 .all .QRcode {
-  display: flex;
-  flex-direction: column;
+  display:flex;    
+  justify-content: center;
 
   width:300rpx;
   height: 300rpx;
@@ -35,6 +35,7 @@
   width: 100%;
   height: 300rpx;
 }
+
 .all .bottom{
   width: 100%;
   height: 120rpx;
