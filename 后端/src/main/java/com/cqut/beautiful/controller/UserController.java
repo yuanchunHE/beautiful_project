@@ -10,6 +10,7 @@ import com.cqut.beautiful.result.ResultData;
 import com.cqut.beautiful.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.json.JSONObject;
 import org.springframework.data.domain.Page;
@@ -41,6 +42,65 @@ public class UserController {
     private String SECRET = "0ecde6c11f8212379f68849f192bbb0d";
     private Tokens token = Tokens.getInstance();
 
+
+    @ApiOperation(value = "updateUser", notes = "设置用户信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "tokenid", value = "token"),
+            @ApiImplicitParam(name = "nickname", value = "昵称"),
+            @ApiImplicitParam(name = "imageurl", value = "图片地址"),
+            @ApiImplicitParam(name = "username", value = "用户名"),
+            @ApiImplicitParam(name = "phone", value = "电话"),
+            @ApiImplicitParam(name = "password", value = "密码"),
+            @ApiImplicitParam(name = "sysToken", value = "系统token"),}
+    )
+
+    @GetMapping("/updateUser/{tokenid}/{nickname}/{imageurl}/{username}/{phone}/{password}/{sysToken}")
+    public ResultData updateUser(@PathVariable String tokenid,
+                                 @PathVariable String nickname,
+                                 @PathVariable String imageurl,
+                                 @PathVariable String username,
+                                 @PathVariable String phone,
+                                 @PathVariable String password,
+                                 @PathVariable String sysToken
+                                 ){
+
+
+        User projects;
+        if(token.checkToken(tokenid)){
+            System.out.println("has");
+            projects = userService.queryUserByToken(tokenid);
+        }
+        else{
+            System.out.println("dont have");
+            projects = new User();
+            return new ResultData(ResultCode.FAILED, projects);
+        }
+
+        if (nickname!=null){
+            projects.setNickname(nickname);
+        }
+        if (imageurl!=null){
+            projects.setImageurl(imageurl);
+        }
+        if(username!=null) {
+            projects.setUsername(username);
+        }
+        if (phone!=null){
+            projects.setPhone(phone);
+        }
+        if(password!=null) {
+            projects.setPassword(password);
+        }
+        if (sysToken!=null){
+            projects.setSystoken(sysToken);
+        }
+
+        projects = userService.update(projects);
+        System.out.println(projects.getPhone());
+        return new ResultData(ResultCode.SUCCESS, projects);
+    }
+
+
     @ApiOperation(value = "queryUserByToken", notes = "通过Token查询对应用户信息")
     @ApiImplicitParam(name = "tokenid", value = "token")
     @GetMapping("/check/token/{tokenid}")
@@ -53,16 +113,11 @@ public class UserController {
             projects = new User();
         }
 
-        ResultData resultData = new ResultData(ResultCode.SUCCESS, projects);
-        return resultData;
+        return new ResultData(ResultCode.SUCCESS, projects);
     }
 
-    /**
-     * 注册函数
-     *
-     * @param code 主键
-     * @return 单条数据
-     */
+    @ApiOperation(value = "getLogin", notes = "通过code查询user")
+    @ApiImplicitParam(name = "code", value = "微信code")
     @GetMapping("/onLogin/{code}")
     public ResultData getLogin(@PathVariable String code) throws Exception {
         String Url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + APPID +
@@ -75,14 +130,25 @@ public class UserController {
         String sessionKey = jsonObject.getString("session_key");
         Boolean result = true;
         User user = userService.queryUserByOpenid(openid);
+        String tokenid = token.addToToken();
+        System.out.println("Token " + tokenid + " generated");
+
+
         if(user == null){
+            System.out.println("New User");
             user = new User();
-            String tokenid = token.addToToken();
-            user.setOpenid(openid);
             user.setSessionkey(sessionKey);
+            user.setOpenid(openid);
             user.setToken(tokenid);
             result = userService.insert(user);
         }
+        else{
+            System.out.println("Update User");
+            user.setToken(tokenid);
+            userService.update(user);
+        }
+
+
 
         if(result)
             return new ResultData(ResultCode.SUCCESS, user);
@@ -100,9 +166,7 @@ public class UserController {
     public ResultData queryUserById(@PathVariable Long id){
         User user = userService.queryUserById(id);
 
-        ResultData resultData = new ResultData(ResultCode.SUCCESS, user);
-
-        return resultData;
+        return new ResultData(ResultCode.SUCCESS, user);
     }
 
     @ApiOperation(value = "insert", notes = "添加用户")
@@ -123,9 +187,7 @@ public class UserController {
     public ResultData queryUserByOpenid(@PathVariable String openid){
         User user = userService.queryUserByOpenid(openid);
 
-        ResultData resultData = new ResultData(ResultCode.SUCCESS, user);
-
-        return resultData;
+        return new ResultData(ResultCode.SUCCESS, user);
     }
 
 

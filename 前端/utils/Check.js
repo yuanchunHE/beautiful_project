@@ -2,17 +2,17 @@ const backAddress = getApp().globalData.url;
 function Login(callback){
   wx.login({
     success: res => {
-      console.log("log Success");
       wx.request({
         url: backAddress + '/user/onLogin/'+res.code,
         success: function (res) {
           let user = res.data.data;
           if (user.id){
-            console.log("Token " + user.token + " saved");
-            wx.setStorageSync({
+            
+            wx.setStorage({
               key:"Token",
               data:user.token,
-            })
+            });
+            console.log("Token " + user.token + " saved");
           }
           else{
             console.log("failed");
@@ -26,6 +26,7 @@ function Login(callback){
 
 function CheckByToken(callback){
   let token = wx.getStorageSync('Token');
+  console.log(token);
   if(!token){
     console.log("dont have token")
     Login(callback);
@@ -35,8 +36,12 @@ function CheckByToken(callback){
       url: backAddress + '/user/check/token/' + token,
       method: "GET",
       success: function (res) {
+        console.log(res.data.data);
         if (res.data.data.id){
           callback(res.data.data);
+        }
+        else{
+          Login(callback);
         }
       },
     })

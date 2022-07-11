@@ -10,7 +10,7 @@ public class Tokens {
     private static final long randomseed = 114514L;
     private static final int MAX_LENTH = 1191;
     private final Random random = new Random();
-    private final Queue<Long> queue = new LinkedList<Long>();
+    public final Queue<Long> queue = new LinkedList<Long>();
 
     private Tokens() {
         random.setSeed(randomseed);
