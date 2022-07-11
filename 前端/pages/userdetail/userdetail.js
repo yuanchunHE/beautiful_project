@@ -17,9 +17,15 @@ Page({
     
   },
   inputPhone: function (e) {
-
     let nuser = this.data.user;
     nuser.phone = e.detail.value;
+    this.setData({
+      user: nuser
+    });
+  },
+  inputNickname: function (e) {
+    let nuser = this.data.user;
+    nuser.nickname = e.detail.value;
     this.setData({
       user: nuser
     });

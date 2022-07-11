@@ -1,14 +1,19 @@
 // pages/my/my.js
 const backAddress = getApp().globalData.url;
 import {GetImgAddress} from "../../utils/Image";
+import {CheckByToken} from "../../utils/Check";
     //todo getuserName and getHeader
 Page({
   data: {
-    "username"  : "username",
-    "userHeader": ""
+   user:""
   },
   onLoad(options) {
-    //call getuserName and getHeader
+    var that = this;
+    CheckByToken(function(resdata){
+      that.setData({
+        user:resdata
+      })
+    })
   },
 
   /**
