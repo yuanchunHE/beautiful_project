@@ -1,7 +1,7 @@
 // index.js
 // 获取应用实例
 const backAddress = getApp().globalData.url;
-import {GetImgAddress} from "../../utils/Image";
+import { GetImgAddress } from "../../utils/Image";
 
 Page({
   //属性
@@ -19,17 +19,17 @@ Page({
       url: backAddress + '/image/banner',
       method: "GET",
       success: function (res) {
-        GetImgAddress(res.data.data); 
+        GetImgAddress(res.data.data);
         that.setData({
           "banner": res.data.data
         })
       }
     })
     wx.request({
-      url: backAddress + +'/image/nav',
+      url: backAddress + '/image/nav',
       method: "GET",
       success: function (res) {
-        GetImgAddress(res.data.data); 
+        GetImgAddress(res.data.data);
         that.setData({
           "nav": res.data.data
         })
@@ -39,7 +39,7 @@ Page({
       url: backAddress + '/project/pro/推荐',
       method: "GET",
       success: function (res) {
-        GetImgAddress(res.data.data); 
+        GetImgAddress(res.data.data);
         that.setData({
           "sub": res.data.data
         })
@@ -58,7 +58,7 @@ Page({
       url: backAddress + '/project/pro/' + navname,
       method: "GET",
       success: function (res) {
-        //console.log(res);
+        GetImgAddress(res.data.data);
         that.setData({
           "sub": res.data.data
         })
@@ -77,7 +77,7 @@ Page({
     })
   },
 
-  toOrder:function(options){
+  toOrder: function (options) {
     //console.log(options);
     var image = options.currentTarget.dataset.img;
     var proname = options.currentTarget.dataset.proname;
@@ -86,7 +86,7 @@ Page({
     var proid = options.currentTarget.dataset.id;
 
     wx.navigateTo({
-      url: '/pages/order/order?image='+image+'&proname='+proname+'&busid='+busid+'&tecid='+tecid+'&proid='+proid,
+      url: '/pages/order/order?image=' + image + '&proname=' + proname + '&busid=' + busid + '&tecid=' + tecid + '&proid=' + proid,
     })
   },
 

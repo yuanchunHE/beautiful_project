@@ -1,7 +1,7 @@
 <!--pages/order/order.wxml-->
 <!-- 第一部分 -->
 <view class="img">
-  <image wx:if="{{image}}" src="{{'http://localhost:8080/images/'+image}}"></image>
+  <image wx:if="{{image}}" src="{{image}}"></image>
 </view>
 
 <!-- 第二部分 -->

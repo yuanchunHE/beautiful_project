@@ -1,7 +1,7 @@
 // pages/order/order.js
 //todo!!
 const backAddress = getApp().globalData.url;
-import {GetImgAddress} from "../../utils/Image";
+
 Page({
 
   data: {
@@ -16,7 +16,7 @@ Page({
     "techlist": ["小乔","大乔","小貂禅"],
     "index": 0,
     "techname":"",
-    "flag":0,
+    "flag": 0,
   },
 
   /**
@@ -24,12 +24,26 @@ Page({
    */
   onLoad(options) {
     var that = this;
-    //console.log(options);
+    console.log(options);
     var image = options.image;
     var proname = options.proname;
     var pid = options.proid;
-    var tecid = options.tecid;
     var busid = options.busid;
+    this.setData({
+      "image": image,
+      "proname": proname,
+      "busid": busid,
+    })
+    //console.log();
+    if (options.tecid=="null"){
+      var tecid = "1";
+    }else{
+      var tecid = options.tecid;
+      that.setData({
+        "flag":1,
+      })
+    }
+
     wx.request({
       url: backAddress + '/business/app/busname/' + pid,
       method: "GET",
@@ -38,11 +52,6 @@ Page({
         //console.log(res);
         that.setData({
           "busname": res.data.data,
-          "image": image,
-          "proname": proname,
-          "proid": pid,
-          "tecid": tecid,
-          "busid": busid,
         })
 
       }
@@ -52,20 +61,18 @@ Page({
       method:"GET",
 
       success: function (res){
-        //console.log(res);
         that.setData({
           "techlist":res.data.data,
         })
       }
     }),
     wx.request({
-      url: backAddress + '/technician/techid/'+tecid,
+      url: backAddress + '/technician/techid/' + tecid,
       method:"GET",
       success:function(res){
         //console.log(res);
         that.setData({
           "techname":res.data.data[0].techname,
-          "flag":1,
         })
       }
     })
