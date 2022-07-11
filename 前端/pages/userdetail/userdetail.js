@@ -33,7 +33,6 @@ Page({
   onDefaultButtonClick(){
     var userinfo = this.data.user
     updateUser(userinfo,function(res){
-      //console.log(res);
     });
     wx.navigateTo({
       url: '/pages/login/login',

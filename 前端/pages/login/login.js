@@ -13,7 +13,6 @@ Page({
     var that = this;
     CheckByToken(
       function(user){
-
         if (!user.phone){
           console.log("dont have phone")
           wx.navigateTo({

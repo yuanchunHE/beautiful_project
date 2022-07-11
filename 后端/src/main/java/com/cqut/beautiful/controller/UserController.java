@@ -63,8 +63,7 @@ public class UserController {
                                  @PathVariable String password,
                                  @PathVariable String sysToken
                                  ){
-
-
+        System.out.println("############    UPDATE     #############");
         User projects;
         if(token.checkToken(tokenid)){
             System.out.println("has");
@@ -73,9 +72,10 @@ public class UserController {
         else{
             System.out.println("dont have");
             projects = new User();
-            return new ResultData(ResultCode.FAILED, projects);
         }
-
+        if(projects==null){
+            System.out.println("NULL");
+        }
         if (!nickname.equals("null")){
             projects.setNickname(nickname);
         }
@@ -97,6 +97,7 @@ public class UserController {
 
         projects = userService.update(projects);
         System.out.println(projects.getPhone());
+        System.out.println("########################################");
         return new ResultData(ResultCode.SUCCESS, projects);
     }
 
@@ -107,9 +108,12 @@ public class UserController {
     public ResultData queryUserByToken(@PathVariable String tokenid){
 
         User projects;
+        System.out.println(tokenid);
         if(token.checkToken(tokenid)){
+            System.out.println("TokenInList");
             projects = userService.queryUserByToken(tokenid);
         }else{
+            System.out.println("TokenNotInList");
             projects = new User();
         }
 
@@ -120,6 +124,7 @@ public class UserController {
     @ApiImplicitParam(name = "code", value = "微信code")
     @GetMapping("/onLogin/{code}")
     public ResultData getLogin(@PathVariable String code) throws Exception {
+        System.out.println("############   LOGIN   #################");
         String Url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + APPID +
                 "&secret=" + SECRET +
                 "&js_code="+code+"&grant_type=authorization_code";
@@ -137,30 +142,37 @@ public class UserController {
             tokenid = String.valueOf(token.generate());
             user = userService.queryUserByToken(tokenid);
         }
-
-        user = userService.queryUserByOpenid(openid);
+        token.add(Long.parseLong(tokenid));
         System.out.println("Token " + tokenid + " generated");
 
+        user = userService.queryUserByOpenid(openid);
         if(user == null){
             System.out.println("New User");
             user = new User();
             user.setSessionkey(sessionKey);
             user.setOpenid(openid);
             user.setToken(tokenid);
-            result = userService.insert(user);
+            result = userService.insert(user);;
         }
         else{
             System.out.println("Update User");
             user.setToken(tokenid);
+            /*bug?*/
             userService.update(user);
         }
 
 
 
-        if(result)
+        if(result){
+            System.out.println("########################################");
             return new ResultData(ResultCode.SUCCESS, user);
-        else
+        }
+
+        else{
+            System.out.println("########################################");
             return new ResultData(ResultCode.FAILED);
+        }
+
     }
 
 

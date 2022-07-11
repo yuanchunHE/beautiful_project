@@ -26,12 +26,13 @@ function Login(callback){
 
 function CheckByToken(callback){
   let token = wx.getStorageSync('Token');
-  console.log(token);
+  console.log("Token: " + token);
   if(!token){
     console.log("dont have token")
     Login(callback);
   }
   else{
+    console.log("have token")
     wx.request({
       url: backAddress + '/user/check/token/' + token,
       method: "GET",
